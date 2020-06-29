@@ -8,18 +8,24 @@
 
 /* Begin PBXBuildFile section */
 		CFF37D3924AA884100D89C80 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFF37D3824AA884100D89C80 /* AppDelegate.swift */; };
-		CFF37D3D24AA884100D89C80 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFF37D3C24AA884100D89C80 /* ViewController.swift */; };
 		CFF37D4224AA884100D89C80 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CFF37D4124AA884100D89C80 /* Assets.xcassets */; };
 		CFF37D4524AA884100D89C80 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CFF37D4324AA884100D89C80 /* LaunchScreen.storyboard */; };
+		CFF37D5024AA8A7900D89C80 /* CoreAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFF37D4F24AA8A7900D89C80 /* CoreAssembly.swift */; };
+		CFF37D5524AA8AB300D89C80 /* ServicesAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFF37D5424AA8AB300D89C80 /* ServicesAssembly.swift */; };
+		CFF37D5A24AA8AFC00D89C80 /* PresentationAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFF37D5924AA8AFC00D89C80 /* PresentationAssembly.swift */; };
+		CFF37D5C24AA8B2700D89C80 /* RootAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFF37D5B24AA8B2700D89C80 /* RootAssembly.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		CFF37D3524AA884100D89C80 /* Big eye.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Big eye.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		CFF37D3824AA884100D89C80 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		CFF37D3C24AA884100D89C80 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		CFF37D4124AA884100D89C80 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CFF37D4424AA884100D89C80 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		CFF37D4624AA884100D89C80 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CFF37D4F24AA8A7900D89C80 /* CoreAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreAssembly.swift; sourceTree = "<group>"; };
+		CFF37D5424AA8AB300D89C80 /* ServicesAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServicesAssembly.swift; sourceTree = "<group>"; };
+		CFF37D5924AA8AFC00D89C80 /* PresentationAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PresentationAssembly.swift; sourceTree = "<group>"; };
+		CFF37D5B24AA8B2700D89C80 /* RootAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootAssembly.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -52,8 +58,11 @@
 		CFF37D3724AA884100D89C80 /* Big eye */ = {
 			isa = PBXGroup;
 			children = (
+				CFF37D5624AA8AC600D89C80 /* PresentationLayer */,
+				CFF37D5124AA8A8800D89C80 /* ServiceLayer */,
+				CFF37D4D24AA8A5000D89C80 /* CoreLayer */,
 				CFF37D3824AA884100D89C80 /* AppDelegate.swift */,
-				CFF37D3C24AA884100D89C80 /* ViewController.swift */,
+				CFF37D5B24AA8B2700D89C80 /* RootAssembly.swift */,
 				CFF37D4C24AA88A600D89C80 /* Resources */,
 			);
 			path = "Big eye";
@@ -67,6 +76,70 @@
 				CFF37D4624AA884100D89C80 /* Info.plist */,
 			);
 			path = Resources;
+			sourceTree = "<group>";
+		};
+		CFF37D4D24AA8A5000D89C80 /* CoreLayer */ = {
+			isa = PBXGroup;
+			children = (
+				CFF37D4E24AA8A5900D89C80 /* Assembly */,
+			);
+			path = CoreLayer;
+			sourceTree = "<group>";
+		};
+		CFF37D4E24AA8A5900D89C80 /* Assembly */ = {
+			isa = PBXGroup;
+			children = (
+				CFF37D4F24AA8A7900D89C80 /* CoreAssembly.swift */,
+			);
+			path = Assembly;
+			sourceTree = "<group>";
+		};
+		CFF37D5124AA8A8800D89C80 /* ServiceLayer */ = {
+			isa = PBXGroup;
+			children = (
+				CFF37D5324AA8A9C00D89C80 /* Assembly */,
+				CFF37D5224AA8A9300D89C80 /* Services */,
+			);
+			path = ServiceLayer;
+			sourceTree = "<group>";
+		};
+		CFF37D5224AA8A9300D89C80 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		CFF37D5324AA8A9C00D89C80 /* Assembly */ = {
+			isa = PBXGroup;
+			children = (
+				CFF37D5424AA8AB300D89C80 /* ServicesAssembly.swift */,
+			);
+			path = Assembly;
+			sourceTree = "<group>";
+		};
+		CFF37D5624AA8AC600D89C80 /* PresentationLayer */ = {
+			isa = PBXGroup;
+			children = (
+				CFF37D5824AA8AE600D89C80 /* Assembly */,
+				CFF37D5724AA8AD400D89C80 /* Modules */,
+			);
+			path = PresentationLayer;
+			sourceTree = "<group>";
+		};
+		CFF37D5724AA8AD400D89C80 /* Modules */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Modules;
+			sourceTree = "<group>";
+		};
+		CFF37D5824AA8AE600D89C80 /* Assembly */ = {
+			isa = PBXGroup;
+			children = (
+				CFF37D5924AA8AFC00D89C80 /* PresentationAssembly.swift */,
+			);
+			path = Assembly;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -139,7 +212,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CFF37D3D24AA884100D89C80 /* ViewController.swift in Sources */,
+				CFF37D5024AA8A7900D89C80 /* CoreAssembly.swift in Sources */,
+				CFF37D5C24AA8B2700D89C80 /* RootAssembly.swift in Sources */,
+				CFF37D5524AA8AB300D89C80 /* ServicesAssembly.swift in Sources */,
+				CFF37D5A24AA8AFC00D89C80 /* PresentationAssembly.swift in Sources */,
 				CFF37D3924AA884100D89C80 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
