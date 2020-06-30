@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CF07863324ABB8F400FC7D1A /* GroupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF07863224ABB8F400FC7D1A /* GroupViewController.swift */; };
+		CF07863524ABB96D00FC7D1A /* GroupVCModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF07863424ABB96D00FC7D1A /* GroupVCModel.swift */; };
+		CF07863824ABBEAD00FC7D1A /* EyeTabBarItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF07863724ABBEAD00FC7D1A /* EyeTabBarItem.swift */; };
+		CF07863A24ABCB1800FC7D1A /* EyeTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF07863924ABCB1800FC7D1A /* EyeTabBar.swift */; };
+		CF07863C24ABCD9200FC7D1A /* EyeTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF07863B24ABCD9200FC7D1A /* EyeTabBarController.swift */; };
 		CFF37D3924AA884100D89C80 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFF37D3824AA884100D89C80 /* AppDelegate.swift */; };
 		CFF37D4224AA884100D89C80 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CFF37D4124AA884100D89C80 /* Assets.xcassets */; };
 		CFF37D4524AA884100D89C80 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CFF37D4324AA884100D89C80 /* LaunchScreen.storyboard */; };
@@ -17,6 +22,11 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		CF07863224ABB8F400FC7D1A /* GroupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupViewController.swift; sourceTree = "<group>"; };
+		CF07863424ABB96D00FC7D1A /* GroupVCModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupVCModel.swift; sourceTree = "<group>"; };
+		CF07863724ABBEAD00FC7D1A /* EyeTabBarItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EyeTabBarItem.swift; sourceTree = "<group>"; };
+		CF07863924ABCB1800FC7D1A /* EyeTabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EyeTabBar.swift; sourceTree = "<group>"; };
+		CF07863B24ABCD9200FC7D1A /* EyeTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EyeTabBarController.swift; sourceTree = "<group>"; };
 		CFF37D3524AA884100D89C80 /* Big eye.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Big eye.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		CFF37D3824AA884100D89C80 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CFF37D4124AA884100D89C80 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -39,6 +49,25 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		CF07863124ABB78000FC7D1A /* GroupViewController */ = {
+			isa = PBXGroup;
+			children = (
+				CF07863224ABB8F400FC7D1A /* GroupViewController.swift */,
+				CF07863424ABB96D00FC7D1A /* GroupVCModel.swift */,
+			);
+			path = GroupViewController;
+			sourceTree = "<group>";
+		};
+		CF07863624ABBE8D00FC7D1A /* EyeTabBarController */ = {
+			isa = PBXGroup;
+			children = (
+				CF07863B24ABCD9200FC7D1A /* EyeTabBarController.swift */,
+				CF07863924ABCB1800FC7D1A /* EyeTabBar.swift */,
+				CF07863724ABBEAD00FC7D1A /* EyeTabBarItem.swift */,
+			);
+			path = EyeTabBarController;
+			sourceTree = "<group>";
+		};
 		CFF37D2C24AA884000D89C80 = {
 			isa = PBXGroup;
 			children = (
@@ -130,6 +159,8 @@
 		CFF37D5724AA8AD400D89C80 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				CF07863624ABBE8D00FC7D1A /* EyeTabBarController */,
+				CF07863124ABB78000FC7D1A /* GroupViewController */,
 			);
 			path = Modules;
 			sourceTree = "<group>";
@@ -212,10 +243,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CF07863524ABB96D00FC7D1A /* GroupVCModel.swift in Sources */,
+				CF07863C24ABCD9200FC7D1A /* EyeTabBarController.swift in Sources */,
+				CF07863324ABB8F400FC7D1A /* GroupViewController.swift in Sources */,
 				CFF37D5024AA8A7900D89C80 /* CoreAssembly.swift in Sources */,
 				CFF37D5C24AA8B2700D89C80 /* RootAssembly.swift in Sources */,
 				CFF37D5524AA8AB300D89C80 /* ServicesAssembly.swift in Sources */,
 				CFF37D5A24AA8AFC00D89C80 /* PresentationAssembly.swift in Sources */,
+				CF07863A24ABCB1800FC7D1A /* EyeTabBar.swift in Sources */,
+				CF07863824ABBEAD00FC7D1A /* EyeTabBarItem.swift in Sources */,
 				CFF37D3924AA884100D89C80 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

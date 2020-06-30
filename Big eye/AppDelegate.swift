@@ -12,13 +12,16 @@ import UIKit
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
+    private let rootAssembly = RootAssembly()
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         
         window = UIWindow(frame: UIScreen.main.bounds)
         window?.makeKeyAndVisible()
-        window?.rootViewController = UIViewController()
-        window?.rootViewController?.view.backgroundColor = .cyan
+        
+        let mainTabBar = rootAssembly.presentationAssembly.eyeTabBarController()
+        
+        window?.rootViewController = mainTabBar
         
         return true
     }
