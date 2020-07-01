@@ -19,6 +19,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window = UIWindow(frame: UIScreen.main.bounds)
         window?.makeKeyAndVisible()
         
+        
         let mainTabBar = rootAssembly.presentationAssembly.eyeTabBarController()
         
         window?.rootViewController = mainTabBar

@@ -28,7 +28,7 @@ class EyeTabBar: UITabBar {
     }
 
     func setupView() {
-        backgroundColor = .white
+        barTintColor = UIColor(red: 240/255, green: 240/255, blue: 240/255, alpha: 1)
         if eyeItems.count == 0 { return }
         
         let stackView = UIStackView()
@@ -45,6 +45,19 @@ class EyeTabBar: UITabBar {
             stackView.centerXAnchor.constraint(equalTo: centerXAnchor),
             stackView.topAnchor.constraint(equalTo: topAnchor),
             stackView.bottomAnchor.constraint(equalTo: bottomAnchor)
+        ])
+        
+        let line = UIView()
+        line.backgroundColor = .lightGray
+        
+        addSubview(line)
+        line.translatesAutoresizingMaskIntoConstraints = false
+        
+        NSLayoutConstraint.activate([
+            line.leadingAnchor.constraint(equalTo: leadingAnchor),
+            line.trailingAnchor.constraint(equalTo: trailingAnchor),
+            line.bottomAnchor.constraint(equalTo: topAnchor),
+            line.heightAnchor.constraint(equalToConstant: 1)
         ])
         
         

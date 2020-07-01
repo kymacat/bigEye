@@ -12,6 +12,8 @@
 		CF07863824ABBEAD00FC7D1A /* EyeTabBarItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF07863724ABBEAD00FC7D1A /* EyeTabBarItem.swift */; };
 		CF07863A24ABCB1800FC7D1A /* EyeTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF07863924ABCB1800FC7D1A /* EyeTabBar.swift */; };
 		CF07863C24ABCD9200FC7D1A /* EyeTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF07863B24ABCD9200FC7D1A /* EyeTabBarController.swift */; };
+		CF80BC5B24ACFF7300BACABD /* GroupVCView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF80BC5A24ACFF7300BACABD /* GroupVCView.swift */; };
+		CF80BC5D24AD18D500BACABD /* GroupMemberCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF80BC5C24AD18D500BACABD /* GroupMemberCell.swift */; };
 		CFF37D3924AA884100D89C80 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFF37D3824AA884100D89C80 /* AppDelegate.swift */; };
 		CFF37D4224AA884100D89C80 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CFF37D4124AA884100D89C80 /* Assets.xcassets */; };
 		CFF37D4524AA884100D89C80 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CFF37D4324AA884100D89C80 /* LaunchScreen.storyboard */; };
@@ -27,6 +29,8 @@
 		CF07863724ABBEAD00FC7D1A /* EyeTabBarItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EyeTabBarItem.swift; sourceTree = "<group>"; };
 		CF07863924ABCB1800FC7D1A /* EyeTabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EyeTabBar.swift; sourceTree = "<group>"; };
 		CF07863B24ABCD9200FC7D1A /* EyeTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EyeTabBarController.swift; sourceTree = "<group>"; };
+		CF80BC5A24ACFF7300BACABD /* GroupVCView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupVCView.swift; sourceTree = "<group>"; };
+		CF80BC5C24AD18D500BACABD /* GroupMemberCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupMemberCell.swift; sourceTree = "<group>"; };
 		CFF37D3524AA884100D89C80 /* Big eye.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Big eye.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		CFF37D3824AA884100D89C80 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CFF37D4124AA884100D89C80 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -54,6 +58,8 @@
 			children = (
 				CF07863224ABB8F400FC7D1A /* GroupViewController.swift */,
 				CF07863424ABB96D00FC7D1A /* GroupVCModel.swift */,
+				CF80BC5C24AD18D500BACABD /* GroupMemberCell.swift */,
+				CF80BC5924ACFF4800BACABD /* View */,
 			);
 			path = GroupViewController;
 			sourceTree = "<group>";
@@ -66,6 +72,14 @@
 				CF07863724ABBEAD00FC7D1A /* EyeTabBarItem.swift */,
 			);
 			path = EyeTabBarController;
+			sourceTree = "<group>";
+		};
+		CF80BC5924ACFF4800BACABD /* View */ = {
+			isa = PBXGroup;
+			children = (
+				CF80BC5A24ACFF7300BACABD /* GroupVCView.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 		CFF37D2C24AA884000D89C80 = {
@@ -243,6 +257,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CF80BC5B24ACFF7300BACABD /* GroupVCView.swift in Sources */,
 				CF07863524ABB96D00FC7D1A /* GroupVCModel.swift in Sources */,
 				CF07863C24ABCD9200FC7D1A /* EyeTabBarController.swift in Sources */,
 				CF07863324ABB8F400FC7D1A /* GroupViewController.swift in Sources */,
@@ -251,6 +266,7 @@
 				CFF37D5524AA8AB300D89C80 /* ServicesAssembly.swift in Sources */,
 				CFF37D5A24AA8AFC00D89C80 /* PresentationAssembly.swift in Sources */,
 				CF07863A24ABCB1800FC7D1A /* EyeTabBar.swift in Sources */,
+				CF80BC5D24AD18D500BACABD /* GroupMemberCell.swift in Sources */,
 				CF07863824ABBEAD00FC7D1A /* EyeTabBarItem.swift in Sources */,
 				CFF37D3924AA884100D89C80 /* AppDelegate.swift in Sources */,
 			);
