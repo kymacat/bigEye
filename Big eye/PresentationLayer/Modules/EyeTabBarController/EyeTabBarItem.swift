@@ -19,7 +19,6 @@ class EyeTabBarItem: UIButton {
     var color: UIColor = UIColor.lightGray {
         didSet {
             iconImageView.tintColor = color
-            textLabel.textColor = color
             line.backgroundColor = color
         }
     }
@@ -31,15 +30,6 @@ class EyeTabBarItem: UIButton {
         return imageView
     }()
     
-    private let textLabel: UILabel = {
-        let label = UILabel()
-        label.textAlignment = .center
-        label.textColor = .darkGray
-        label.font = UIFont.systemFont(ofSize: 11)
-        label.translatesAutoresizingMaskIntoConstraints = false
-        return label
-    }()
-    
     private let line: UIView = {
         let view = UIView()
         view.translatesAutoresizingMaskIntoConstraints = false
@@ -48,11 +38,10 @@ class EyeTabBarItem: UIButton {
 
     // MARK: - Init
     
-    convenience init(iconName: String, title: String) {
+    convenience init(iconName: String) {
         self.init()
         translatesAutoresizingMaskIntoConstraints = false
         iconImageView.image = UIImage(named: iconName)?.withRenderingMode(.alwaysTemplate)
-        textLabel.text = title
         setupView()
     }
 
@@ -67,22 +56,15 @@ class EyeTabBarItem: UIButton {
         NSLayoutConstraint.activate([
             iconImageView.topAnchor.constraint(equalTo: topAnchor, constant: 4),
             iconImageView.centerXAnchor.constraint(equalTo: centerXAnchor),
-            iconImageView.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -20),
+            iconImageView.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -10),
             iconImageView.widthAnchor.constraint(equalTo: iconImageView.heightAnchor)
-        ])
-        
-        addSubview(textLabel)
-        
-        NSLayoutConstraint.activate([
-            textLabel.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -7),
-            textLabel.centerXAnchor.constraint(equalTo: centerXAnchor)
         ])
         
         addSubview(line)
         
         highlightingConstraint = [
-            line.leadingAnchor.constraint(equalTo: textLabel.leadingAnchor),
-            line.trailingAnchor.constraint(equalTo: textLabel.trailingAnchor)
+            line.leadingAnchor.constraint(equalTo: leadingAnchor),
+            line.trailingAnchor.constraint(equalTo: trailingAnchor)
         ]
         
         notHighlightingConstraint = [
@@ -93,7 +75,7 @@ class EyeTabBarItem: UIButton {
         NSLayoutConstraint.activate(notHighlightingConstraint)
         
         NSLayoutConstraint.activate([
-            line.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -2),
+            line.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -4),
             line.heightAnchor.constraint(equalToConstant: 2)
         ])
         

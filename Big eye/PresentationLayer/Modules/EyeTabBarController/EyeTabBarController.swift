@@ -40,7 +40,7 @@ class EyeTabBarController: UITabBarController {
             bar.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             bar.trailingAnchor.constraint(equalTo: view.trailingAnchor),
             bar.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
-            bar.heightAnchor.constraint(equalToConstant: 55)
+            bar.heightAnchor.constraint(equalToConstant: 45)
         ])
         
         for i in 0 ..< items.count {

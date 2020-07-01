@@ -26,9 +26,9 @@ class PresentationAssembly: IPresentationAssembly {
     func eyeTabBarController() -> EyeTabBarController {
         let controller = EyeTabBarController()
         
-        let groupItem = EyeTabBarItem(iconName: "group", title: "Группа")
-        let timetableItem = EyeTabBarItem(iconName: "calendar", title: "Расписание")
-        let statisticsItem = EyeTabBarItem(iconName: "stat", title: "Статистика")
+        let groupItem = EyeTabBarItem(iconName: "group")
+        let timetableItem = EyeTabBarItem(iconName: "calendar")
+        let statisticsItem = EyeTabBarItem(iconName: "stat")
 
         
         controller.setTabBar(items: [groupItem, timetableItem, statisticsItem])
