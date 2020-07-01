@@ -10,7 +10,7 @@ import UIKit
 
 class EyeTabBarController: UITabBarController {
     var eyeTabBar: EyeTabBar!
-    var selectedColor = UIColor(red: 135/255, green: 135/255, blue: 255/255, alpha: 1)
+    var selectedColor = UIColor(red: 125/255, green: 125/255, blue: 255/255, alpha: 1)
     var normalColor = UIColor.gray {
         didSet {
             eyeTabBar.tintColor = normalColor

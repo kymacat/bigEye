@@ -6,11 +6,11 @@
 //  Copyright © 2020 Oleginc. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 protocol IPresentationAssembly {
     func eyeTabBarController() -> EyeTabBarController
-    func groupViewController() -> GroupViewController
+    func groupViewController() -> UINavigationController
 }
 
 class PresentationAssembly: IPresentationAssembly {
@@ -39,10 +39,19 @@ class PresentationAssembly: IPresentationAssembly {
     
     // MARK: - GroupViewController
     
-    func groupViewController() -> GroupViewController {
+    func groupViewController() -> UINavigationController {
         let model = groupVCModel()
         let controller = GroupViewController(model: model, assembly: self)
-        return controller
+        controller.navigationItem.title = "Группа"
+        
+        let navigationController = UINavigationController(rootViewController: controller)
+        navigationController.navigationBar.titleTextAttributes =
+            [NSAttributedString.Key.foregroundColor: UIColor.black,
+         NSAttributedString.Key.font: UIFont(name: "Avenir-Heavy", size: 22)!]
+        navigationController.view.backgroundColor = .white
+        navigationController.navigationBar.barTintColor = UIColor(red: 220/255, green: 220/255, blue: 255/255, alpha: 1)
+        
+        return navigationController
     }
     
     private func groupVCModel() -> IGroupVCModel {
