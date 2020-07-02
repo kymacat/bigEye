@@ -10,6 +10,8 @@ import UIKit
 
 class GroupVCView: UIView {
     
+    var addMemberView = AddMemberView()
+    
     let collectionView: UICollectionView = {
         
         let layout: UICollectionViewFlowLayout = UICollectionViewFlowLayout()
@@ -33,9 +35,41 @@ class GroupVCView: UIView {
         fill()
     }
     
+    // MARK: - Add member
+    
+    func showAddMemberView() {
+        
+        let newView = AddMemberView()
+        newView.delegate = addMemberView.delegate
+        addMemberView = newView
+        
+        addSubview(addMemberView)
+        
+        NSLayoutConstraint.activate([
+            addMemberView.topAnchor.constraint(equalTo: topAnchor),
+            addMemberView.leadingAnchor.constraint(equalTo: leadingAnchor),
+            addMemberView.bottomAnchor.constraint(equalTo: bottomAnchor),
+            addMemberView.trailingAnchor.constraint(equalTo: trailingAnchor)
+        ])
+        
+        addMemberView.layoutIfNeeded()
+        
+        addMemberView.showAnimation()
+        
+    }
+    
+    func setConstraintsWithoutKeyboard() {
+        addMemberView.setConstraintsWithoutKeyboard()
+    }
+    
+    func setConstraintsWithKeyboard() {
+        addMemberView.setConstraintsWithKeyboard()
+    }
+    
     // MARK: - Fill view
     
     private func fill() {
+        
         addSubview(collectionView)
         
         NSLayoutConstraint.activate([

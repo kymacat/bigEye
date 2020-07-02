@@ -17,6 +17,28 @@ class GroupViewController: UIViewController {
     //view
     private let groupView = GroupVCView()
     
+    var data: [GroupMemberCellModel] = [
+        GroupMemberCellModel(imageName: "placeholder", firstName: "Влад", lastName: "Яндола", description: ""),
+        GroupMemberCellModel(imageName: "placeholder", firstName: "Гена", lastName: "Горин", description: ""),
+        GroupMemberCellModel(imageName: "placeholder", firstName: "Василий", lastName: "Пупкин", description: ""),
+        GroupMemberCellModel(imageName: "placeholder", firstName: "Иван", lastName: "Иванов", description: ""),
+        GroupMemberCellModel(imageName: "placeholder", firstName: "Владимир", lastName: "Путин", description: ""),
+        GroupMemberCellModel(imageName: "placeholder", firstName: "Наталия", lastName: "Коновалова", description: ""),
+        GroupMemberCellModel(imageName: "placeholder", firstName: "Слава", lastName: "Корнев", description: ""),
+        GroupMemberCellModel(imageName: "placeholder", firstName: "Дарья", lastName: "Гулиева", description: ""),
+        GroupMemberCellModel(imageName: "placeholder", firstName: "Матвей", lastName: "Потапов", description: ""),
+        GroupMemberCellModel(imageName: "placeholder", firstName: "Дмитрий", lastName: "Медведев", description: ""),
+        GroupMemberCellModel(imageName: "placeholder", firstName: "Марина", lastName: "Тищенко", description: ""),
+        GroupMemberCellModel(imageName: "placeholder", firstName: "Петр", lastName: "Петров", description: ""),
+        GroupMemberCellModel(imageName: "placeholder", firstName: "Аслан", lastName: "Намазов", description: ""),
+        GroupMemberCellModel(imageName: "placeholder", firstName: "Астан", lastName: "Тедеев", description: ""),
+        GroupMemberCellModel(imageName: "placeholder", firstName: "Ибрагим", lastName: "Абдулаев", description: ""),
+        GroupMemberCellModel(imageName: "placeholder", firstName: "Денис", lastName: "Шолохов", description: ""),
+        GroupMemberCellModel(imageName: "placeholder", firstName: "Никита", lastName: "Бондаренко", description: ""),
+        GroupMemberCellModel(imageName: "placeholder", firstName: "Сергей", lastName: "Стецков", description: ""),
+        GroupMemberCellModel(imageName: "placeholder", firstName: "Леонид", lastName: "Лихачев", description: "")
+    ]
+    
     // MARK: - Init
     
     init(model: IGroupVCModel, assembly: IPresentationAssembly) {
@@ -42,7 +64,37 @@ class GroupViewController: UIViewController {
         groupView.collectionView.dataSource = self
         groupView.collectionView.delegate = self
         groupView.collectionView.register(GroupMemberCell.self, forCellWithReuseIdentifier: "memberCell")
+        
+        groupView.addMemberView.delegate = self
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWasShown), name: UIResponder.keyboardWillShowNotification, object: nil)
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillBeHidden), name: UIResponder.keyboardWillHideNotification, object: nil)
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        
+        NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillShowNotification, object: nil)
+        
+        NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillHideNotification, object: nil)
+        
+    }
+    
+    // MARK: - Keyboard show/hide
+    
+    @objc func keyboardWasShown() {
+        groupView.setConstraintsWithKeyboard()
+    }
+    
+    @objc func keyboardWillBeHidden() {
+        groupView.setConstraintsWithoutKeyboard()
+    }
+    
 }
 
 // MARK: - CollectionView DataSource
@@ -54,14 +106,14 @@ extension GroupViewController: UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        25
+        data.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let memberCell = collectionView.dequeueReusableCell(withReuseIdentifier: "memberCell", for: indexPath) as? GroupMemberCell else {return UICollectionViewCell()}
         
-        let model = GroupMemberCellModel(imageName: "placeholder", firstName: "Влад", lastName: "Яндола", description: "")
-        memberCell.setup(with: model)
+        let model = data[indexPath.row]
+        memberCell.configure(with: model)
         
         return memberCell
     }
@@ -74,7 +126,8 @@ extension GroupViewController: UICollectionViewDelegate {
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let cell = collectionView.cellForItem(at: indexPath) as? GroupMemberCell
-        cell?.didHighlight()
+        cell?.didSelect()
+        groupView.showAddMemberView()
     }
     
     func collectionView(_ collectionView: UICollectionView, didHighlightItemAt indexPath: IndexPath) {
@@ -97,6 +150,19 @@ extension GroupViewController: UICollectionViewDelegateFlowLayout {
 
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
         return UIEdgeInsets(top: 15, left: 10, bottom: 15, right: 10)
+    }
+}
+
+// MARK: - Add member delegate
+
+extension GroupViewController: AddMemberDelegate {
+    func addMember(firstName: String, lastName: String, description: String) {
+        let model = GroupMemberCellModel(imageName: "placeholder", firstName: firstName, lastName: lastName, description: description)
+        
+        data.append(model)
+        
+        groupView.collectionView.reloadData()
+        
     }
 }
 

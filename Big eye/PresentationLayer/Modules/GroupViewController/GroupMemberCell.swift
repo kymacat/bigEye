@@ -53,9 +53,9 @@ class GroupMemberCell: UICollectionViewCell {
         fill()
     }
     
-    // MARK: - Setup
+    // MARK: - Configure
     
-    func setup(with model: GroupMemberCellModel) {
+    func configure(with model: GroupMemberCellModel) {
         imageView.image = UIImage(named: model.imageName)
         firstNameLabel.text = model.firstName
         lastNameLabel.text = model.lastName
@@ -63,6 +63,13 @@ class GroupMemberCell: UICollectionViewCell {
     
     let normalColor = UIColor.white
     let highlightedColor = UIColor(red: 230/255, green: 230/255, blue: 230/255, alpha: 1)
+    
+    func didSelect() {
+        didHighlight()
+        UIView.animate(withDuration: 1, animations: {
+            self.didUnhighlight()
+        })
+    }
     
     func didHighlight() {
         backgroundColor = highlightedColor
