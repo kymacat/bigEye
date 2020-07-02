@@ -54,7 +54,7 @@ class EyeTabBarItem: UIButton {
         addSubview(iconImageView)
         
         NSLayoutConstraint.activate([
-            iconImageView.topAnchor.constraint(equalTo: topAnchor, constant: 4),
+            iconImageView.topAnchor.constraint(equalTo: topAnchor, constant: 8),
             iconImageView.centerXAnchor.constraint(equalTo: centerXAnchor),
             iconImageView.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -10),
             iconImageView.widthAnchor.constraint(equalTo: iconImageView.heightAnchor)

@@ -49,7 +49,7 @@ class PresentationAssembly: IPresentationAssembly {
             [NSAttributedString.Key.foregroundColor: UIColor.black,
          NSAttributedString.Key.font: UIFont(name: "Avenir-Heavy", size: 22)!]
         navigationController.view.backgroundColor = .white
-        navigationController.navigationBar.barTintColor = UIColor(red: 220/255, green: 220/255, blue: 255/255, alpha: 1)
+        navigationController.navigationBar.barTintColor = UIColor(red: 200/255, green: 240/255, blue: 255/255, alpha: 1)
         
         return navigationController
     }

@@ -61,8 +61,8 @@ class GroupMemberCell: UICollectionViewCell {
         lastNameLabel.text = model.lastName
     }
     
-    let normalColor = UIColor(red: 245/255, green: 245/255, blue: 245/255, alpha: 1)
-    let highlightedColor = UIColor(red: 210/255, green: 210/255, blue: 210/255, alpha: 1)
+    let normalColor = UIColor.white
+    let highlightedColor = UIColor(red: 230/255, green: 230/255, blue: 230/255, alpha: 1)
     
     func didHighlight() {
         backgroundColor = highlightedColor
@@ -78,13 +78,15 @@ class GroupMemberCell: UICollectionViewCell {
         layer.cornerRadius = 20
         
         layer.shadowColor = UIColor.black.cgColor
-        layer.shadowRadius = 2
-        layer.shadowOpacity = 0.5
-        layer.shadowOffset = CGSize(width: 2, height: 2)
+        layer.shadowRadius = 4
+        layer.shadowOpacity = 0.3
+        layer.shadowOffset = CGSize(width: 0, height: 0)
         
         
         addSubview(imageView)
         imageView.translatesAutoresizingMaskIntoConstraints = false
+        imageView.clipsToBounds = true
+        imageView.layer.cornerRadius = 31
         
         NSLayoutConstraint.activate([
             imageView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 10),

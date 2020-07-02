@@ -92,11 +92,11 @@ extension GroupViewController: UICollectionViewDelegate {
 
 extension GroupViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: self.view.frame.width/2 - 10, height: 75)
+        return CGSize(width: self.view.frame.width/2 - 15, height: 75)
     }
 
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-        return UIEdgeInsets(top: 15, left: 5, bottom: 15, right: 5)
+        return UIEdgeInsets(top: 15, left: 10, bottom: 15, right: 10)
     }
 }
 
