@@ -10,12 +10,12 @@ import UIKit
 
 class NewMemberView: UIView {
     
-    let avatarImageView: UIImageView = {
-        let imageView = UIImageView()
-        imageView.image = UIImage(named: "setImage")
-        imageView.clipsToBounds = true
-        imageView.translatesAutoresizingMaskIntoConstraints = false
-        return imageView
+    let avatarImage: UIButton = {
+        let button = UIButton()
+        button.setImage(UIImage(named: "setImage"), for: .normal)
+        button.clipsToBounds = true
+        button.translatesAutoresizingMaskIntoConstraints = false
+        return button
     }()
     
     let firstAndLastNames = NameTextField()
@@ -71,21 +71,21 @@ class NewMemberView: UIView {
     
     private func fill() {
         
-        addSubview(avatarImageView)
+        addSubview(avatarImage)
         
         NSLayoutConstraint.activate([
-            avatarImageView.topAnchor.constraint(equalTo: topAnchor, constant: 20),
-            avatarImageView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 10),
-            avatarImageView.heightAnchor.constraint(equalTo: heightAnchor, multiplier: 0.3),
-            avatarImageView.widthAnchor.constraint(equalTo: avatarImageView.heightAnchor)
+            avatarImage.topAnchor.constraint(equalTo: topAnchor, constant: 20),
+            avatarImage.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 10),
+            avatarImage.heightAnchor.constraint(equalTo: heightAnchor, multiplier: 0.3),
+            avatarImage.widthAnchor.constraint(equalTo: avatarImage.heightAnchor)
         ])
         
         addSubview(firstAndLastNames)
         
         NSLayoutConstraint.activate([
-            firstAndLastNames.topAnchor.constraint(equalTo: avatarImageView.topAnchor),
-            firstAndLastNames.leadingAnchor.constraint(equalTo: avatarImageView.trailingAnchor, constant: 10),
-            firstAndLastNames.bottomAnchor.constraint(equalTo: avatarImageView.bottomAnchor),
+            firstAndLastNames.topAnchor.constraint(equalTo: avatarImage.topAnchor),
+            firstAndLastNames.leadingAnchor.constraint(equalTo: avatarImage.trailingAnchor, constant: 10),
+            firstAndLastNames.bottomAnchor.constraint(equalTo: avatarImage.bottomAnchor),
             firstAndLastNames.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -20)
         ])
         
@@ -111,7 +111,7 @@ class NewMemberView: UIView {
         addSubview(extraInfoTextField)
         
         NSLayoutConstraint.activate([
-            extraInfoTextField.topAnchor.constraint(equalTo: avatarImageView.bottomAnchor, constant: 10),
+            extraInfoTextField.topAnchor.constraint(equalTo: avatarImage.bottomAnchor, constant: 10),
             extraInfoTextField.leadingAnchor.constraint(equalTo: confirmButton.leadingAnchor),
             extraInfoTextField.trailingAnchor.constraint(equalTo: cancelButton.trailingAnchor),
             extraInfoTextField.bottomAnchor.constraint(equalTo: cancelButton.topAnchor, constant: -10)
@@ -121,7 +121,7 @@ class NewMemberView: UIView {
     
     override func layoutSubviews() {
         super.layoutSubviews()
-        avatarImageView.layer.cornerRadius = avatarImageView.bounds.width/2
+        avatarImage.layer.cornerRadius = avatarImage.bounds.width/2
     }
 }
 

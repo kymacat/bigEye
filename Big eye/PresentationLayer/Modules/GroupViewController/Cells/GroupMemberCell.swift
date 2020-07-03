@@ -82,8 +82,13 @@ class GroupMemberCell: UICollectionViewCell {
             self.backgroundColor = self.normalColor
         })
     }
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        imageView.layer.cornerRadius = imageView.bounds.width/2
+    }
     
     // MARK: - Fill view
+    
     private func fill() {
         backgroundColor = normalColor
         layer.cornerRadius = 20
@@ -97,7 +102,6 @@ class GroupMemberCell: UICollectionViewCell {
         addSubview(imageView)
         imageView.translatesAutoresizingMaskIntoConstraints = false
         imageView.clipsToBounds = true
-        imageView.layer.cornerRadius = 31
         
         NSLayoutConstraint.activate([
             imageView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 10),

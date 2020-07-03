@@ -10,6 +10,7 @@ import UIKit
 
 protocol AddMemberDelegate {
     func addMember(firstName: String, lastName: String, description: String?, image: UIImage?)
+    func setImage()
 }
 
 class AddMemberView: UIView {
@@ -102,6 +103,7 @@ class AddMemberView: UIView {
         
         newMemberView.cancelButton.addTarget(self, action: #selector(cancel), for: .touchUpInside)
         newMemberView.confirmButton.addTarget(self, action: #selector(confirm), for: .touchUpInside)
+        newMemberView.avatarImage.addTarget(self, action: #selector(setImage), for: .touchUpInside)
     }
     
     // MARK: - Fill view
@@ -171,8 +173,19 @@ class AddMemberView: UIView {
               let lastName = newMemberView.firstAndLastNames.lastNameTextField.text else {return}
         
         var description = newMemberView.extraInfoTextField.text
+        
+        var image: UIImage? = nil
+        
+        if newMemberView.avatarImage.imageView?.image != UIImage(named: "setImage") {
+            image = newMemberView.avatarImage.imageView?.image
+        }
+        
         if description == "Дополнительная информация" {description = nil}
         
-        delegate?.addMember(firstName: firstName, lastName: lastName, description: description, image: nil)
+        delegate?.addMember(firstName: firstName, lastName: lastName, description: description, image: image)
+    }
+    
+    @objc func setImage() {
+        delegate?.setImage() 
     }
 }

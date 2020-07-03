@@ -162,6 +162,7 @@ extension GroupViewController: UICollectionViewDelegateFlowLayout {
 // MARK: - Add member delegate
 
 extension GroupViewController: AddMemberDelegate {
+    
     func addMember(firstName: String, lastName: String, description: String?, image: UIImage?) {
         let person = GroupMemberModel(image: image, firstName: firstName, lastName: lastName, description: description)
         
@@ -171,5 +172,51 @@ extension GroupViewController: AddMemberDelegate {
         groupView.collectionView.reloadData()
         
     }
+    
+    func setImage() {
+        let imagePickerController = UIImagePickerController()
+        imagePickerController.delegate = self
+        
+        let alert = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
+        let cancelAction = UIAlertAction(title: "Назад", style: .cancel, handler: nil)
+        
+        let libraryAction = UIAlertAction(title: "Выбрать из галереи", style: .default) { (action: UIAlertAction) in
+            imagePickerController.sourceType = .photoLibrary
+            self.present(imagePickerController, animated: true, completion: nil)
+        }
+        
+        
+        let makePhotoAction = UIAlertAction(title: "Сделать фото", style: .default) { (action: UIAlertAction) in
+            if UIImagePickerController.isSourceTypeAvailable(.camera) {
+                imagePickerController.sourceType = .camera
+                self.present(imagePickerController, animated: true, completion: nil)
+            } else {
+                print("Camera not available")
+            }
+        }
+
+        
+        alert.addAction(cancelAction)
+        alert.addAction(libraryAction)
+        alert.addAction(makePhotoAction)
+        
+        present(alert, animated: true, completion: nil)
+    }
+}
+
+extension GroupViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        let image = info[UIImagePickerController.InfoKey.originalImage] as! UIImage
+        
+        groupView.addMemberView.newMemberView.avatarImage.setImage(image, for: .normal)
+        
+        picker.dismiss(animated: true, completion: nil)
+    }
+    
+    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+        picker.dismiss(animated: true, completion: nil)
+    }
+    
 }
 
