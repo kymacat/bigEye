@@ -204,6 +204,8 @@ extension GroupViewController: AddMemberDelegate {
     }
 }
 
+// MARK: - Image Picker Delegate
+
 extension GroupViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {

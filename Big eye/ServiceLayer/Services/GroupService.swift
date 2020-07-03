@@ -40,7 +40,14 @@ class GroupService: IGroupService {
             persons.append(newPerson)
         }
         
-        return persons
+        let sortedPersons = persons.sorted { (first, second) -> Bool in
+            if first.lastName < second.lastName {
+                return true
+            }
+            return false
+        }
+        
+        return sortedPersons
     }
     
 }
