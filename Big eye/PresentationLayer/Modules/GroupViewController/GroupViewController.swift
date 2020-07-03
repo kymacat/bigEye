@@ -64,6 +64,7 @@ class GroupViewController: UIViewController {
         groupView.collectionView.dataSource = self
         groupView.collectionView.delegate = self
         groupView.collectionView.register(GroupMemberCell.self, forCellWithReuseIdentifier: "memberCell")
+        groupView.collectionView.register(AddMemberCell.self, forCellWithReuseIdentifier: "addCell")
         
         groupView.addMemberView.delegate = self
     }
@@ -102,14 +103,21 @@ class GroupViewController: UIViewController {
 extension GroupViewController: UICollectionViewDataSource {
     
     func numberOfSections(in collectionView: UICollectionView) -> Int {
-        1
+        return 1
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        data.count
+        return data.count + 1
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        
+        if indexPath.row == data.count {
+            guard let addCell = collectionView.dequeueReusableCell(withReuseIdentifier: "addCell", for: indexPath) as? AddMemberCell else {return UICollectionViewCell()}
+            
+            return addCell
+        }
+        
         guard let memberCell = collectionView.dequeueReusableCell(withReuseIdentifier: "memberCell", for: indexPath) as? GroupMemberCell else {return UICollectionViewCell()}
         
         let model = data[indexPath.row]
@@ -125,19 +133,35 @@ extension GroupViewController: UICollectionViewDataSource {
 extension GroupViewController: UICollectionViewDelegate {
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let cell = collectionView.cellForItem(at: indexPath) as? GroupMemberCell
-        cell?.didSelect()
-        groupView.showAddMemberView()
+        if let cell = collectionView.cellForItem(at: indexPath) as? GroupMemberCell {
+            cell.didSelect()
+        }
+        
+        if let cell = collectionView.cellForItem(at: indexPath) as? AddMemberCell {
+            cell.didSelect()
+            groupView.showAddMemberView()
+        }
+        
     }
     
     func collectionView(_ collectionView: UICollectionView, didHighlightItemAt indexPath: IndexPath) {
-        let cell = collectionView.cellForItem(at: indexPath) as? GroupMemberCell
-        cell?.didHighlight()
+        if let cell = collectionView.cellForItem(at: indexPath) as? GroupMemberCell {
+            cell.didHighlight()
+        }
+        
+        if let cell = collectionView.cellForItem(at: indexPath) as? AddMemberCell {
+            cell.didHighlight()
+        }
     
     }
     func collectionView(_ collectionView: UICollectionView, didUnhighlightItemAt indexPath: IndexPath) {
-        let cell = collectionView.cellForItem(at: indexPath) as? GroupMemberCell
-        cell?.didUnhighlight()
+        if let cell = collectionView.cellForItem(at: indexPath) as? GroupMemberCell {
+            cell.didUnhighlight()
+        }
+        
+        if let cell = collectionView.cellForItem(at: indexPath) as? AddMemberCell {
+            cell.didUnhighlight()
+        }
     }
 }
 

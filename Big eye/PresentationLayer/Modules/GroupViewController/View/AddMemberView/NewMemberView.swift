@@ -96,7 +96,7 @@ class NewMemberView: UIView {
             confirmButton.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20),
             confirmButton.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -10),
             confirmButton.widthAnchor.constraint(equalTo: widthAnchor, multiplier: 0.43),
-            confirmButton.heightAnchor.constraint(equalTo: heightAnchor, multiplier: 0.11)
+            confirmButton.heightAnchor.constraint(equalTo: heightAnchor, multiplier: 0.12)
         ])
         
         addSubview(cancelButton)

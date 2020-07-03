@@ -12,6 +12,8 @@
 		CF07863824ABBEAD00FC7D1A /* EyeTabBarItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF07863724ABBEAD00FC7D1A /* EyeTabBarItem.swift */; };
 		CF07863A24ABCB1800FC7D1A /* EyeTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF07863924ABCB1800FC7D1A /* EyeTabBar.swift */; };
 		CF07863C24ABCD9200FC7D1A /* EyeTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF07863B24ABCD9200FC7D1A /* EyeTabBarController.swift */; };
+		CF1D177624AEFD59002C7F0F /* AddMemberCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF1D177524AEFD59002C7F0F /* AddMemberCell.swift */; };
+		CF1D177824AEFED1002C7F0F /* GradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF1D177724AEFED1002C7F0F /* GradientView.swift */; };
 		CF465A5B24ADE847009E82CB /* AddMemberView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF465A5A24ADE847009E82CB /* AddMemberView.swift */; };
 		CF465A5D24ADEC1F009E82CB /* NameTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF465A5C24ADEC1F009E82CB /* NameTextField.swift */; };
 		CF465A5F24ADECF1009E82CB /* NewMemberView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF465A5E24ADECF1009E82CB /* NewMemberView.swift */; };
@@ -33,6 +35,8 @@
 		CF07863724ABBEAD00FC7D1A /* EyeTabBarItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EyeTabBarItem.swift; sourceTree = "<group>"; };
 		CF07863924ABCB1800FC7D1A /* EyeTabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EyeTabBar.swift; sourceTree = "<group>"; };
 		CF07863B24ABCD9200FC7D1A /* EyeTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EyeTabBarController.swift; sourceTree = "<group>"; };
+		CF1D177524AEFD59002C7F0F /* AddMemberCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddMemberCell.swift; sourceTree = "<group>"; };
+		CF1D177724AEFED1002C7F0F /* GradientView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientView.swift; sourceTree = "<group>"; };
 		CF465A5A24ADE847009E82CB /* AddMemberView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddMemberView.swift; sourceTree = "<group>"; };
 		CF465A5C24ADEC1F009E82CB /* NameTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NameTextField.swift; sourceTree = "<group>"; };
 		CF465A5E24ADECF1009E82CB /* NewMemberView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewMemberView.swift; sourceTree = "<group>"; };
@@ -67,6 +71,7 @@
 				CF07863224ABB8F400FC7D1A /* GroupViewController.swift */,
 				CF07863424ABB96D00FC7D1A /* GroupVCModel.swift */,
 				CF80BC5C24AD18D500BACABD /* GroupMemberCell.swift */,
+				CF1D177524AEFD59002C7F0F /* AddMemberCell.swift */,
 				CF80BC5924ACFF4800BACABD /* View */,
 			);
 			path = GroupViewController;
@@ -98,6 +103,7 @@
 			children = (
 				CF80BC5A24ACFF7300BACABD /* GroupVCView.swift */,
 				CF465A6224AE16E1009E82CB /* AddMemberView */,
+				CF1D177724AEFED1002C7F0F /* GradientView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -285,7 +291,9 @@
 				CF465A5B24ADE847009E82CB /* AddMemberView.swift in Sources */,
 				CFF37D5024AA8A7900D89C80 /* CoreAssembly.swift in Sources */,
 				CFF37D5C24AA8B2700D89C80 /* RootAssembly.swift in Sources */,
+				CF1D177824AEFED1002C7F0F /* GradientView.swift in Sources */,
 				CFF37D5524AA8AB300D89C80 /* ServicesAssembly.swift in Sources */,
+				CF1D177624AEFD59002C7F0F /* AddMemberCell.swift in Sources */,
 				CFF37D5A24AA8AFC00D89C80 /* PresentationAssembly.swift in Sources */,
 				CF07863A24ABCB1800FC7D1A /* EyeTabBar.swift in Sources */,
 				CF465A5D24ADEC1F009E82CB /* NameTextField.swift in Sources */,
