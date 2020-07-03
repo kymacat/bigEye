@@ -20,6 +20,11 @@
 		CF465A6124ADFF66009E82CB /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF465A6024ADFF66009E82CB /* CustomButton.swift */; };
 		CF80BC5B24ACFF7300BACABD /* GroupVCView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF80BC5A24ACFF7300BACABD /* GroupVCView.swift */; };
 		CF80BC5D24AD18D500BACABD /* GroupMemberCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF80BC5C24AD18D500BACABD /* GroupMemberCell.swift */; };
+		CFAE3E7B24AF619D0099B6AD /* Eye.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = CFAE3E7924AF619D0099B6AD /* Eye.xcdatamodeld */; };
+		CFAE3E7E24AF67520099B6AD /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFAE3E7D24AF67520099B6AD /* CoreDataStack.swift */; };
+		CFAE3E8224AF789C0099B6AD /* Person.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFAE3E8024AF789C0099B6AD /* Person.swift */; };
+		CFAE3E8524AF7C690099B6AD /* GroupFileManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFAE3E8424AF7C690099B6AD /* GroupFileManager.swift */; };
+		CFAE3E8724AF80400099B6AD /* GroupService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFAE3E8624AF80400099B6AD /* GroupService.swift */; };
 		CFF37D3924AA884100D89C80 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFF37D3824AA884100D89C80 /* AppDelegate.swift */; };
 		CFF37D4224AA884100D89C80 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CFF37D4124AA884100D89C80 /* Assets.xcassets */; };
 		CFF37D4524AA884100D89C80 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CFF37D4324AA884100D89C80 /* LaunchScreen.storyboard */; };
@@ -43,6 +48,11 @@
 		CF465A6024ADFF66009E82CB /* CustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
 		CF80BC5A24ACFF7300BACABD /* GroupVCView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupVCView.swift; sourceTree = "<group>"; };
 		CF80BC5C24AD18D500BACABD /* GroupMemberCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupMemberCell.swift; sourceTree = "<group>"; };
+		CFAE3E7A24AF619D0099B6AD /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
+		CFAE3E7D24AF67520099B6AD /* CoreDataStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
+		CFAE3E8024AF789C0099B6AD /* Person.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Person.swift; sourceTree = "<group>"; };
+		CFAE3E8424AF7C690099B6AD /* GroupFileManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupFileManager.swift; sourceTree = "<group>"; };
+		CFAE3E8624AF80400099B6AD /* GroupService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupService.swift; sourceTree = "<group>"; };
 		CFF37D3524AA884100D89C80 /* Big eye.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Big eye.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		CFF37D3824AA884100D89C80 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CFF37D4124AA884100D89C80 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -70,8 +80,7 @@
 			children = (
 				CF07863224ABB8F400FC7D1A /* GroupViewController.swift */,
 				CF07863424ABB96D00FC7D1A /* GroupVCModel.swift */,
-				CF80BC5C24AD18D500BACABD /* GroupMemberCell.swift */,
-				CF1D177524AEFD59002C7F0F /* AddMemberCell.swift */,
+				CF1D177924AF0500002C7F0F /* Cells */,
 				CF80BC5924ACFF4800BACABD /* View */,
 			);
 			path = GroupViewController;
@@ -85,6 +94,15 @@
 				CF07863724ABBEAD00FC7D1A /* EyeTabBarItem.swift */,
 			);
 			path = EyeTabBarController;
+			sourceTree = "<group>";
+		};
+		CF1D177924AF0500002C7F0F /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				CF80BC5C24AD18D500BACABD /* GroupMemberCell.swift */,
+				CF1D177524AEFD59002C7F0F /* AddMemberCell.swift */,
+			);
+			path = Cells;
 			sourceTree = "<group>";
 		};
 		CF465A6224AE16E1009E82CB /* AddMemberView */ = {
@@ -106,6 +124,24 @@
 				CF1D177724AEFED1002C7F0F /* GradientView.swift */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		CFAE3E7C24AF624F0099B6AD /* CoreData */ = {
+			isa = PBXGroup;
+			children = (
+				CFAE3E7D24AF67520099B6AD /* CoreDataStack.swift */,
+				CFAE3E8424AF7C690099B6AD /* GroupFileManager.swift */,
+				CFAE3E8324AF78B10099B6AD /* Objects */,
+			);
+			path = CoreData;
+			sourceTree = "<group>";
+		};
+		CFAE3E8324AF78B10099B6AD /* Objects */ = {
+			isa = PBXGroup;
+			children = (
+				CFAE3E8024AF789C0099B6AD /* Person.swift */,
+			);
+			path = Objects;
 			sourceTree = "<group>";
 		};
 		CFF37D2C24AA884000D89C80 = {
@@ -143,6 +179,7 @@
 				CFF37D4124AA884100D89C80 /* Assets.xcassets */,
 				CFF37D4324AA884100D89C80 /* LaunchScreen.storyboard */,
 				CFF37D4624AA884100D89C80 /* Info.plist */,
+				CFAE3E7924AF619D0099B6AD /* Eye.xcdatamodeld */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -151,6 +188,7 @@
 			isa = PBXGroup;
 			children = (
 				CFF37D4E24AA8A5900D89C80 /* Assembly */,
+				CFAE3E7C24AF624F0099B6AD /* CoreData */,
 			);
 			path = CoreLayer;
 			sourceTree = "<group>";
@@ -175,6 +213,7 @@
 		CFF37D5224AA8A9300D89C80 /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				CFAE3E8624AF80400099B6AD /* GroupService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -286,20 +325,25 @@
 				CF80BC5B24ACFF7300BACABD /* GroupVCView.swift in Sources */,
 				CF07863524ABB96D00FC7D1A /* GroupVCModel.swift in Sources */,
 				CF07863C24ABCD9200FC7D1A /* EyeTabBarController.swift in Sources */,
+				CFAE3E8524AF7C690099B6AD /* GroupFileManager.swift in Sources */,
 				CF07863324ABB8F400FC7D1A /* GroupViewController.swift in Sources */,
 				CF465A6124ADFF66009E82CB /* CustomButton.swift in Sources */,
 				CF465A5B24ADE847009E82CB /* AddMemberView.swift in Sources */,
 				CFF37D5024AA8A7900D89C80 /* CoreAssembly.swift in Sources */,
 				CFF37D5C24AA8B2700D89C80 /* RootAssembly.swift in Sources */,
 				CF1D177824AEFED1002C7F0F /* GradientView.swift in Sources */,
+				CFAE3E8224AF789C0099B6AD /* Person.swift in Sources */,
+				CFAE3E8724AF80400099B6AD /* GroupService.swift in Sources */,
 				CFF37D5524AA8AB300D89C80 /* ServicesAssembly.swift in Sources */,
 				CF1D177624AEFD59002C7F0F /* AddMemberCell.swift in Sources */,
 				CFF37D5A24AA8AFC00D89C80 /* PresentationAssembly.swift in Sources */,
 				CF07863A24ABCB1800FC7D1A /* EyeTabBar.swift in Sources */,
 				CF465A5D24ADEC1F009E82CB /* NameTextField.swift in Sources */,
 				CF80BC5D24AD18D500BACABD /* GroupMemberCell.swift in Sources */,
+				CFAE3E7E24AF67520099B6AD /* CoreDataStack.swift in Sources */,
 				CF07863824ABBEAD00FC7D1A /* EyeTabBarItem.swift in Sources */,
 				CFF37D3924AA884100D89C80 /* AppDelegate.swift in Sources */,
+				CFAE3E7B24AF619D0099B6AD /* Eye.xcdatamodeld in Sources */,
 				CF465A5F24ADECF1009E82CB /* NewMemberView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -492,6 +536,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		CFAE3E7924AF619D0099B6AD /* Eye.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				CFAE3E7A24AF619D0099B6AD /* Model.xcdatamodel */,
+			);
+			currentVersion = CFAE3E7A24AF619D0099B6AD /* Model.xcdatamodel */;
+			path = Eye.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = CFF37D2D24AA884000D89C80 /* Project object */;
 }

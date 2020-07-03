@@ -18,25 +18,25 @@ class GroupViewController: UIViewController {
     private let groupView = GroupVCView()
     
     var data: [GroupMemberCellModel] = [
-        GroupMemberCellModel(imageName: "placeholder", firstName: "Влад", lastName: "Яндола", description: ""),
-        GroupMemberCellModel(imageName: "placeholder", firstName: "Гена", lastName: "Горин", description: ""),
-        GroupMemberCellModel(imageName: "placeholder", firstName: "Василий", lastName: "Пупкин", description: ""),
-        GroupMemberCellModel(imageName: "placeholder", firstName: "Иван", lastName: "Иванов", description: ""),
-        GroupMemberCellModel(imageName: "placeholder", firstName: "Владимир", lastName: "Путин", description: ""),
-        GroupMemberCellModel(imageName: "placeholder", firstName: "Наталия", lastName: "Коновалова", description: ""),
-        GroupMemberCellModel(imageName: "placeholder", firstName: "Слава", lastName: "Корнев", description: ""),
-        GroupMemberCellModel(imageName: "placeholder", firstName: "Дарья", lastName: "Гулиева", description: ""),
-        GroupMemberCellModel(imageName: "placeholder", firstName: "Матвей", lastName: "Потапов", description: ""),
-        GroupMemberCellModel(imageName: "placeholder", firstName: "Дмитрий", lastName: "Медведев", description: ""),
-        GroupMemberCellModel(imageName: "placeholder", firstName: "Марина", lastName: "Тищенко", description: ""),
-        GroupMemberCellModel(imageName: "placeholder", firstName: "Петр", lastName: "Петров", description: ""),
-        GroupMemberCellModel(imageName: "placeholder", firstName: "Аслан", lastName: "Намазов", description: ""),
-        GroupMemberCellModel(imageName: "placeholder", firstName: "Астан", lastName: "Тедеев", description: ""),
-        GroupMemberCellModel(imageName: "placeholder", firstName: "Ибрагим", lastName: "Абдулаев", description: ""),
-        GroupMemberCellModel(imageName: "placeholder", firstName: "Денис", lastName: "Шолохов", description: ""),
-        GroupMemberCellModel(imageName: "placeholder", firstName: "Никита", lastName: "Бондаренко", description: ""),
-        GroupMemberCellModel(imageName: "placeholder", firstName: "Сергей", lastName: "Стецков", description: ""),
-        GroupMemberCellModel(imageName: "placeholder", firstName: "Леонид", lastName: "Лихачев", description: "")
+        GroupMemberCellModel(image: UIImage(named: "placeholder"), firstName: "Влад", lastName: "Яндола", description: ""),
+        GroupMemberCellModel(image: UIImage(named: "placeholder"), firstName: "Гена", lastName: "Горин", description: ""),
+        GroupMemberCellModel(image: UIImage(named: "placeholder"), firstName: "Василий", lastName: "Пупкин", description: ""),
+        GroupMemberCellModel(image: UIImage(named: "placeholder"), firstName: "Иван", lastName: "Иванов", description: ""),
+        GroupMemberCellModel(image: UIImage(named: "placeholder"), firstName: "Владимир", lastName: "Путин", description: ""),
+        GroupMemberCellModel(image: UIImage(named: "placeholder"), firstName: "Наталия", lastName: "Коновалова", description: ""),
+        GroupMemberCellModel(image: UIImage(named: "placeholder"), firstName: "Слава", lastName: "Корнев", description: ""),
+        GroupMemberCellModel(image: UIImage(named: "placeholder"), firstName: "Дарья", lastName: "Гулиева", description: ""),
+        GroupMemberCellModel(image: UIImage(named: "placeholder"), firstName: "Матвей", lastName: "Потапов", description: ""),
+        GroupMemberCellModel(image: UIImage(named: "placeholder"), firstName: "Дмитрий", lastName: "Медведев", description: ""),
+        GroupMemberCellModel(image: UIImage(named: "placeholder"), firstName: "Марина", lastName: "Тищенко", description: ""),
+        GroupMemberCellModel(image: UIImage(named: "placeholder"), firstName: "Петр", lastName: "Петров", description: ""),
+        GroupMemberCellModel(image: UIImage(named: "placeholder"), firstName: "Аслан", lastName: "Намазов", description: ""),
+        GroupMemberCellModel(image: UIImage(named: "placeholder"), firstName: "Астан", lastName: "Тедеев", description: ""),
+        GroupMemberCellModel(image: UIImage(named: "placeholder"), firstName: "Ибрагим", lastName: "Абдулаев", description: ""),
+        GroupMemberCellModel(image: UIImage(named: "placeholder"), firstName: "Денис", lastName: "Шолохов", description: ""),
+        GroupMemberCellModel(image: UIImage(named: "placeholder"), firstName: "Никита", lastName: "Бондаренко", description: ""),
+        GroupMemberCellModel(image: UIImage(named: "placeholder"), firstName: "Сергей", lastName: "Стецков", description: ""),
+        GroupMemberCellModel(image: UIImage(named: "placeholder"), firstName: "Леонид", lastName: "Лихачев", description: "")
     ]
     
     // MARK: - Init
@@ -180,10 +180,11 @@ extension GroupViewController: UICollectionViewDelegateFlowLayout {
 // MARK: - Add member delegate
 
 extension GroupViewController: AddMemberDelegate {
-    func addMember(firstName: String, lastName: String, description: String) {
-        let model = GroupMemberCellModel(imageName: "placeholder", firstName: firstName, lastName: lastName, description: description)
+    func addMember(firstName: String, lastName: String, description: String?, image: UIImage?) {
+        let person = GroupMemberCellModel(image: image, firstName: firstName, lastName: lastName, description: description)
         
-        data.append(model)
+        self.model.savePerson(person: person)
+        data.append(person)
         
         groupView.collectionView.reloadData()
         

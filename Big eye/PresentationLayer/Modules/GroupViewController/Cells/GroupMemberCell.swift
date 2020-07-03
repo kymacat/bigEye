@@ -9,10 +9,10 @@
 import UIKit
 
 struct GroupMemberCellModel {
-    let imageName: String
+    let image: UIImage?
     let firstName: String
     let lastName: String
-    let description: String
+    let description: String?
 }
 
 class GroupMemberCell: UICollectionViewCell {
@@ -56,7 +56,7 @@ class GroupMemberCell: UICollectionViewCell {
     // MARK: - Configure
     
     func configure(with model: GroupMemberCellModel) {
-        imageView.image = UIImage(named: model.imageName)
+        imageView.image = model.image
         firstNameLabel.text = model.firstName
         lastNameLabel.text = model.lastName
     }
@@ -66,9 +66,7 @@ class GroupMemberCell: UICollectionViewCell {
     
     func didSelect() {
         didHighlight()
-        UIView.animate(withDuration: 1, animations: {
-            self.didUnhighlight()
-        })
+        didUnhighlight()
     }
     
     func didHighlight() {
@@ -76,7 +74,9 @@ class GroupMemberCell: UICollectionViewCell {
     }
     
     func didUnhighlight() {
-        backgroundColor = normalColor
+        UIView.animate(withDuration: 1, animations: {
+            self.backgroundColor = self.normalColor
+        })
     }
     
     // MARK: - Fill view

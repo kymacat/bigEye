@@ -30,9 +30,7 @@ class AddMemberCell: UICollectionViewCell {
     
     func didSelect() {
         didHighlight()
-        UIView.animate(withDuration: 1, animations: {
-            self.didUnhighlight()
-        })
+        didUnhighlight()
     }
     
     func didHighlight() {
@@ -40,7 +38,9 @@ class AddMemberCell: UICollectionViewCell {
     }
     
     func didUnhighlight() {
-        gradient.alpha = 1
+        UIView.animate(withDuration: 1, animations: {
+            self.gradient.alpha = 1
+        })
     }
     
     // MARK: - Fill view

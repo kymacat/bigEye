@@ -9,9 +9,9 @@
 import Foundation
 
 protocol ICoreAssembly {
-
+    var groupFileManager: IGroupFileManager { get }
 }
 
 class CoreAssembly: ICoreAssembly {
-    
+    lazy var groupFileManager: IGroupFileManager = GroupFileManager()
 }

@@ -9,7 +9,7 @@
 import UIKit
 
 protocol AddMemberDelegate {
-    func addMember(firstName: String, lastName: String, description: String)
+    func addMember(firstName: String, lastName: String, description: String?, image: UIImage?)
 }
 
 class AddMemberView: UIView {
@@ -168,9 +168,11 @@ class AddMemberView: UIView {
         removeWithAnimation()
         
         guard let firstName = newMemberView.firstAndLastNames.firstNameTextField.text,
-              let lastName = newMemberView.firstAndLastNames.lastNameTextField.text,
-            let description = newMemberView.extraInfoTextField.text else {return}
+              let lastName = newMemberView.firstAndLastNames.lastNameTextField.text else {return}
         
-        delegate?.addMember(firstName: firstName, lastName: lastName, description: description)
+        var description = newMemberView.extraInfoTextField.text
+        if description == "Дополнительная информация" {description = nil}
+        
+        delegate?.addMember(firstName: firstName, lastName: lastName, description: description, image: nil)
     }
 }

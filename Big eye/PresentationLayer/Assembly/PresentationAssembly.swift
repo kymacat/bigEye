@@ -55,7 +55,7 @@ class PresentationAssembly: IPresentationAssembly {
     }
     
     private func groupVCModel() -> IGroupVCModel {
-        return GroupVCModel()
+        return GroupVCModel(service: serviceAssembly.groupService)
     }
     
 }

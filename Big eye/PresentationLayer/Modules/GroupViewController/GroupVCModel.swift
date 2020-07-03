@@ -9,9 +9,18 @@
 import Foundation
 
 protocol IGroupVCModel {
-    
+    func savePerson(person: GroupMemberCellModel)
 }
 
 class GroupVCModel: IGroupVCModel {
     
+    private let groupService: IGroupService
+    
+    init(service: IGroupService) {
+        groupService = service
+    }
+    
+    func savePerson(person: GroupMemberCellModel) {
+        groupService.savePerson(firstName: person.firstName, lastName: person.lastName, info: person.description, image: person.image)
+    }
 }

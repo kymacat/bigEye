@@ -9,7 +9,7 @@
 import Foundation
 
 protocol IServicesAssembly {
-    
+    var groupService: IGroupService { get }
 }
 
 class ServicesAssembly: IServicesAssembly {
@@ -19,4 +19,6 @@ class ServicesAssembly: IServicesAssembly {
     init(coreAssembly: ICoreAssembly) {
         self.coreAssembly = coreAssembly
     }
+    
+    lazy var groupService: IGroupService = GroupService(dataManager: coreAssembly.groupFileManager)
 }
