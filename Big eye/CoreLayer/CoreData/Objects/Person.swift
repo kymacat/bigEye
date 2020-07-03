@@ -28,8 +28,8 @@ extension Person {
         return NSFetchRequest<Person>(entityName: "Person")
     }
 
-    @NSManaged public var firstName: String?
-    @NSManaged public var lastName: String?
+    @NSManaged public var firstName: String
+    @NSManaged public var lastName: String
     @NSManaged public var info: String?
     @NSManaged public var image: Data?
 

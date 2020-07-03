@@ -17,27 +17,7 @@ class GroupViewController: UIViewController {
     //view
     private let groupView = GroupVCView()
     
-    var data: [GroupMemberCellModel] = [
-        GroupMemberCellModel(image: UIImage(named: "placeholder"), firstName: "Влад", lastName: "Яндола", description: ""),
-        GroupMemberCellModel(image: UIImage(named: "placeholder"), firstName: "Гена", lastName: "Горин", description: ""),
-        GroupMemberCellModel(image: UIImage(named: "placeholder"), firstName: "Василий", lastName: "Пупкин", description: ""),
-        GroupMemberCellModel(image: UIImage(named: "placeholder"), firstName: "Иван", lastName: "Иванов", description: ""),
-        GroupMemberCellModel(image: UIImage(named: "placeholder"), firstName: "Владимир", lastName: "Путин", description: ""),
-        GroupMemberCellModel(image: UIImage(named: "placeholder"), firstName: "Наталия", lastName: "Коновалова", description: ""),
-        GroupMemberCellModel(image: UIImage(named: "placeholder"), firstName: "Слава", lastName: "Корнев", description: ""),
-        GroupMemberCellModel(image: UIImage(named: "placeholder"), firstName: "Дарья", lastName: "Гулиева", description: ""),
-        GroupMemberCellModel(image: UIImage(named: "placeholder"), firstName: "Матвей", lastName: "Потапов", description: ""),
-        GroupMemberCellModel(image: UIImage(named: "placeholder"), firstName: "Дмитрий", lastName: "Медведев", description: ""),
-        GroupMemberCellModel(image: UIImage(named: "placeholder"), firstName: "Марина", lastName: "Тищенко", description: ""),
-        GroupMemberCellModel(image: UIImage(named: "placeholder"), firstName: "Петр", lastName: "Петров", description: ""),
-        GroupMemberCellModel(image: UIImage(named: "placeholder"), firstName: "Аслан", lastName: "Намазов", description: ""),
-        GroupMemberCellModel(image: UIImage(named: "placeholder"), firstName: "Астан", lastName: "Тедеев", description: ""),
-        GroupMemberCellModel(image: UIImage(named: "placeholder"), firstName: "Ибрагим", lastName: "Абдулаев", description: ""),
-        GroupMemberCellModel(image: UIImage(named: "placeholder"), firstName: "Денис", lastName: "Шолохов", description: ""),
-        GroupMemberCellModel(image: UIImage(named: "placeholder"), firstName: "Никита", lastName: "Бондаренко", description: ""),
-        GroupMemberCellModel(image: UIImage(named: "placeholder"), firstName: "Сергей", lastName: "Стецков", description: ""),
-        GroupMemberCellModel(image: UIImage(named: "placeholder"), firstName: "Леонид", lastName: "Лихачев", description: "")
-    ]
+    var data = [GroupMemberModel]()
     
     // MARK: - Init
     
@@ -67,6 +47,8 @@ class GroupViewController: UIViewController {
         groupView.collectionView.register(AddMemberCell.self, forCellWithReuseIdentifier: "addCell")
         
         groupView.addMemberView.delegate = self
+        
+        data = model.fetchGroupMembers()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -181,7 +163,7 @@ extension GroupViewController: UICollectionViewDelegateFlowLayout {
 
 extension GroupViewController: AddMemberDelegate {
     func addMember(firstName: String, lastName: String, description: String?, image: UIImage?) {
-        let person = GroupMemberCellModel(image: image, firstName: firstName, lastName: lastName, description: description)
+        let person = GroupMemberModel(image: image, firstName: firstName, lastName: lastName, description: description)
         
         self.model.savePerson(person: person)
         data.append(person)

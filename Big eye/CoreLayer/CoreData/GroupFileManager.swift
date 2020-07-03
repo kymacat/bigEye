@@ -10,7 +10,7 @@ import CoreData
 
 protocol IGroupFileManager {
     func savePerson(firstName: String, lastName: String, info: String?, image: Data?)
-    func fetchPersons()
+    func fetchPersons() -> [Person]
 }
 
 class GroupFileManager: CoreDataStack, IGroupFileManager {
@@ -30,8 +30,15 @@ class GroupFileManager: CoreDataStack, IGroupFileManager {
         
     }
     
-    func fetchPersons() {
-        
+    func fetchPersons() -> [Person] {
+        let fetchRequest = NSFetchRequest<Person>(entityName: "Person")
+        do {
+            let persons = try self.managedObjectContext.fetch(fetchRequest)
+            return persons
+        } catch {
+            print(error)
+            return []
+        }
     }
     
 }

@@ -9,7 +9,8 @@
 import UIKit
 
 protocol IGroupService {
-    func savePerson(firstName: String, lastName: String, info: String?, image: UIImage?)
+    func savePerson(person: GroupMemberModel)
+    func fetchPersons() -> [GroupMemberModel]
 }
 
 class GroupService: IGroupService {
@@ -20,9 +21,26 @@ class GroupService: IGroupService {
         self.dataManager = dataManager
     }
     
-    func savePerson(firstName: String, lastName: String, info: String?, image: UIImage?) {
-        let imageData = image?.pngData()
-        dataManager.savePerson(firstName: firstName, lastName: lastName, info: info, image: imageData)
+    func savePerson(person: GroupMemberModel) {
+        let imageData = person.image?.pngData()
+        dataManager.savePerson(firstName: person.firstName, lastName: person.lastName, info: person.description, image: imageData)
+    }
+    
+    func fetchPersons() -> [GroupMemberModel] {
+        var persons = [GroupMemberModel]()
+        
+        let fechedPersons = dataManager.fetchPersons()
+        
+        for person in fechedPersons {
+            var image: UIImage? = nil
+            if let data = person.image {
+                image = UIImage(data: data)
+            }
+            let newPerson = GroupMemberModel(image: image, firstName: person.firstName, lastName: person.lastName, description: person.info)
+            persons.append(newPerson)
+        }
+        
+        return persons
     }
     
 }

@@ -9,7 +9,8 @@
 import Foundation
 
 protocol IGroupVCModel {
-    func savePerson(person: GroupMemberCellModel)
+    func savePerson(person: GroupMemberModel)
+    func fetchGroupMembers() -> [GroupMemberModel]
 }
 
 class GroupVCModel: IGroupVCModel {
@@ -20,7 +21,11 @@ class GroupVCModel: IGroupVCModel {
         groupService = service
     }
     
-    func savePerson(person: GroupMemberCellModel) {
-        groupService.savePerson(firstName: person.firstName, lastName: person.lastName, info: person.description, image: person.image)
+    func savePerson(person: GroupMemberModel) {
+        groupService.savePerson(person: person)
+    }
+    
+    func fetchGroupMembers() -> [GroupMemberModel] {
+        return groupService.fetchPersons()
     }
 }

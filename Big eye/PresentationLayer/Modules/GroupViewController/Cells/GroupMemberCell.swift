@@ -8,7 +8,7 @@
 
 import UIKit
 
-struct GroupMemberCellModel {
+struct GroupMemberModel {
     let image: UIImage?
     let firstName: String
     let lastName: String
@@ -55,8 +55,12 @@ class GroupMemberCell: UICollectionViewCell {
     
     // MARK: - Configure
     
-    func configure(with model: GroupMemberCellModel) {
-        imageView.image = model.image
+    func configure(with model: GroupMemberModel) {
+        if let image = model.image {
+            imageView.image = image
+        } else {
+            imageView.image = UIImage(named: "placeholder")
+        }
         firstNameLabel.text = model.firstName
         lastNameLabel.text = model.lastName
     }
