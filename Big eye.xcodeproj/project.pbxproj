@@ -7,6 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CF011E3724B0A43D0012D6F7 /* TimetableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF011E3624B0A43D0012D6F7 /* TimetableViewController.swift */; };
+		CF011E3924B0A54D0012D6F7 /* TimetableVCModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF011E3824B0A54D0012D6F7 /* TimetableVCModel.swift */; };
+		CF011E3C24B0AC380012D6F7 /* TimetableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF011E3B24B0AC380012D6F7 /* TimetableView.swift */; };
+		CF011E3E24B0B4150012D6F7 /* TimetableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF011E3D24B0B4150012D6F7 /* TimetableCell.swift */; };
+		CF011E4124B0C14D0012D6F7 /* TimetableCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF011E4024B0C14D0012D6F7 /* TimetableCellView.swift */; };
+		CF011E4324B0C6780012D6F7 /* TimetableModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF011E4224B0C6780012D6F7 /* TimetableModel.swift */; };
+		CF011E4524B0CCC00012D6F7 /* SubjectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF011E4424B0CCC00012D6F7 /* SubjectView.swift */; };
 		CF07863324ABB8F400FC7D1A /* GroupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF07863224ABB8F400FC7D1A /* GroupViewController.swift */; };
 		CF07863524ABB96D00FC7D1A /* GroupVCModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF07863424ABB96D00FC7D1A /* GroupVCModel.swift */; };
 		CF07863824ABBEAD00FC7D1A /* EyeTabBarItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF07863724ABBEAD00FC7D1A /* EyeTabBarItem.swift */; };
@@ -35,6 +42,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		CF011E3624B0A43D0012D6F7 /* TimetableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimetableViewController.swift; sourceTree = "<group>"; };
+		CF011E3824B0A54D0012D6F7 /* TimetableVCModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimetableVCModel.swift; sourceTree = "<group>"; };
+		CF011E3B24B0AC380012D6F7 /* TimetableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimetableView.swift; sourceTree = "<group>"; };
+		CF011E3D24B0B4150012D6F7 /* TimetableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimetableCell.swift; sourceTree = "<group>"; };
+		CF011E4024B0C14D0012D6F7 /* TimetableCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimetableCellView.swift; sourceTree = "<group>"; };
+		CF011E4224B0C6780012D6F7 /* TimetableModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimetableModel.swift; sourceTree = "<group>"; };
+		CF011E4424B0CCC00012D6F7 /* SubjectView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubjectView.swift; sourceTree = "<group>"; };
 		CF07863224ABB8F400FC7D1A /* GroupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupViewController.swift; sourceTree = "<group>"; };
 		CF07863424ABB96D00FC7D1A /* GroupVCModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupVCModel.swift; sourceTree = "<group>"; };
 		CF07863724ABBEAD00FC7D1A /* EyeTabBarItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EyeTabBarItem.swift; sourceTree = "<group>"; };
@@ -75,6 +89,36 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		CF011E3524B0A3FE0012D6F7 /* TimetableViewController */ = {
+			isa = PBXGroup;
+			children = (
+				CF011E3624B0A43D0012D6F7 /* TimetableViewController.swift */,
+				CF011E3824B0A54D0012D6F7 /* TimetableVCModel.swift */,
+				CF011E4224B0C6780012D6F7 /* TimetableModel.swift */,
+				CF011E3F24B0C1300012D6F7 /* TimetableCell */,
+				CF011E3A24B0AC240012D6F7 /* View */,
+			);
+			path = TimetableViewController;
+			sourceTree = "<group>";
+		};
+		CF011E3A24B0AC240012D6F7 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				CF011E3B24B0AC380012D6F7 /* TimetableView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		CF011E3F24B0C1300012D6F7 /* TimetableCell */ = {
+			isa = PBXGroup;
+			children = (
+				CF011E3D24B0B4150012D6F7 /* TimetableCell.swift */,
+				CF011E4024B0C14D0012D6F7 /* TimetableCellView.swift */,
+				CF011E4424B0CCC00012D6F7 /* SubjectView.swift */,
+			);
+			path = TimetableCell;
+			sourceTree = "<group>";
+		};
 		CF07863124ABB78000FC7D1A /* GroupViewController */ = {
 			isa = PBXGroup;
 			children = (
@@ -240,6 +284,7 @@
 			children = (
 				CF07863624ABBE8D00FC7D1A /* EyeTabBarController */,
 				CF07863124ABB78000FC7D1A /* GroupViewController */,
+				CF011E3524B0A3FE0012D6F7 /* TimetableViewController */,
 			);
 			path = Modules;
 			sourceTree = "<group>";
@@ -327,23 +372,30 @@
 				CF07863C24ABCD9200FC7D1A /* EyeTabBarController.swift in Sources */,
 				CFAE3E8524AF7C690099B6AD /* GroupFileManager.swift in Sources */,
 				CF07863324ABB8F400FC7D1A /* GroupViewController.swift in Sources */,
+				CF011E4324B0C6780012D6F7 /* TimetableModel.swift in Sources */,
 				CF465A6124ADFF66009E82CB /* CustomButton.swift in Sources */,
 				CF465A5B24ADE847009E82CB /* AddMemberView.swift in Sources */,
 				CFF37D5024AA8A7900D89C80 /* CoreAssembly.swift in Sources */,
 				CFF37D5C24AA8B2700D89C80 /* RootAssembly.swift in Sources */,
 				CF1D177824AEFED1002C7F0F /* GradientView.swift in Sources */,
+				CF011E3E24B0B4150012D6F7 /* TimetableCell.swift in Sources */,
 				CFAE3E8224AF789C0099B6AD /* Person.swift in Sources */,
+				CF011E4124B0C14D0012D6F7 /* TimetableCellView.swift in Sources */,
+				CF011E3924B0A54D0012D6F7 /* TimetableVCModel.swift in Sources */,
 				CFAE3E8724AF80400099B6AD /* GroupService.swift in Sources */,
 				CFF37D5524AA8AB300D89C80 /* ServicesAssembly.swift in Sources */,
 				CF1D177624AEFD59002C7F0F /* AddMemberCell.swift in Sources */,
 				CFF37D5A24AA8AFC00D89C80 /* PresentationAssembly.swift in Sources */,
+				CF011E3C24B0AC380012D6F7 /* TimetableView.swift in Sources */,
 				CF07863A24ABCB1800FC7D1A /* EyeTabBar.swift in Sources */,
+				CF011E4524B0CCC00012D6F7 /* SubjectView.swift in Sources */,
 				CF465A5D24ADEC1F009E82CB /* NameTextField.swift in Sources */,
 				CF80BC5D24AD18D500BACABD /* GroupMemberCell.swift in Sources */,
 				CFAE3E7E24AF67520099B6AD /* CoreDataStack.swift in Sources */,
 				CF07863824ABBEAD00FC7D1A /* EyeTabBarItem.swift in Sources */,
 				CFF37D3924AA884100D89C80 /* AppDelegate.swift in Sources */,
 				CFAE3E7B24AF619D0099B6AD /* Eye.xcdatamodeld in Sources */,
+				CF011E3724B0A43D0012D6F7 /* TimetableViewController.swift in Sources */,
 				CF465A5F24ADECF1009E82CB /* NewMemberView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

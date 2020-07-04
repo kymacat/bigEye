@@ -11,6 +11,7 @@ import UIKit
 protocol IPresentationAssembly {
     func eyeTabBarController() -> EyeTabBarController
     func groupViewController() -> UINavigationController
+    func timetableViewController() -> UINavigationController
 }
 
 class PresentationAssembly: IPresentationAssembly {
@@ -32,17 +33,14 @@ class PresentationAssembly: IPresentationAssembly {
 
         
         controller.setTabBar(items: [groupItem, timetableItem, statisticsItem])
-        controller.viewControllers = [groupViewController(), groupViewController(), groupViewController()]
+        controller.viewControllers = [groupViewController(), timetableViewController(), UIViewController()]
         
         return controller
     }
     
-    // MARK: - GroupViewController
+    // MARK: - NavigationViewController
     
-    func groupViewController() -> UINavigationController {
-        let model = groupVCModel()
-        let controller = GroupViewController(model: model, assembly: self)
-        controller.navigationItem.title = "Группа"
+    private func navigationViewController(with controller: UIViewController) -> UINavigationController {
         
         let navigationController = UINavigationController(rootViewController: controller)
         navigationController.navigationBar.titleTextAttributes =
@@ -54,8 +52,31 @@ class PresentationAssembly: IPresentationAssembly {
         return navigationController
     }
     
+    // MARK: - GroupViewController
+    
+    func groupViewController() -> UINavigationController {
+        let model = groupVCModel()
+        let controller = GroupViewController(model: model, assembly: self)
+        controller.navigationItem.title = "Группа"
+        
+        return navigationViewController(with: controller)
+    }
+    
     private func groupVCModel() -> IGroupVCModel {
         return GroupVCModel(service: serviceAssembly.groupService)
     }
     
+    // MARK: - TimetableViewController
+    
+    func timetableViewController() -> UINavigationController {
+        let model = timetableVCModel()
+        let controller = TimetableViewController(model: model, assembly: self)
+        controller.navigationItem.title = "Расписание"
+        
+        return navigationViewController(with: controller)
+    }
+    
+    private func timetableVCModel() -> ITimetableVCModel {
+        return TimetableVCModel()
+    }
 }
