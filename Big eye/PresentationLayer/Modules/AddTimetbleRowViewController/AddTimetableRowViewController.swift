@@ -133,15 +133,18 @@ extension AddTimetableRowViewController: UIPickerViewDataSource {
 
 extension AddTimetableRowViewController: UIPickerViewDelegate {
     
-    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+    func pickerView(_ pickerView: UIPickerView, attributedTitleForRow row: Int, forComponent component: Int) -> NSAttributedString? {
+        var title: String
+        
         if component % 2 == 0 {
-            return String(hours[row])
+            title = String(hours[row])
         } else {
+            title = String(minutes[row])
             if minutes[row] < 10 {
-                return "0" + String(minutes[row])
+                title = "0" + String(minutes[row])
             }
-            return String(minutes[row])
         }
+        return NSAttributedString(string: title, attributes: [NSAttributedString.Key.foregroundColor: UIColor.black])
     }
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
