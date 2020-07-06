@@ -44,7 +44,10 @@ class TimetableViewController: UIViewController {
         timetableView.tableView.delegate = self
         timetableView.tableView.dataSource = self
         
+        timetableView.addTimetableView.delegate = self
+        
         timetableView.tableView.register(TimetableCell.self, forCellReuseIdentifier: "TimetableCell")
+        timetableView.tableView.register(AddTimetableCell.self, forCellReuseIdentifier: "AddTimetableCell")
         
         
         // test data
@@ -53,25 +56,25 @@ class TimetableViewController: UIViewController {
         TimetableRow(startTime: "13:30", endTime: "15:00", teacher: "Кудрявцева Ирина Владимировна", subjectNeme: "Математическая статистика"),
         TimetableRow(startTime: "15:20", endTime: "16:50", teacher: "Поляков Николай Алексеевич", subjectNeme: "Электротехника и электроника")
         ]))
-        
+
         data.append(TimetableModel(name: "Вторник", subjects: [
         TimetableRow(startTime: "08:20", endTime: "09:50", teacher: "Егоров Михаил Юрьевич", subjectNeme: "Дополнительные главы физики"),
         TimetableRow(startTime: "10:00", endTime: "11:30", teacher: "Стафеев Сергей Константинович", subjectNeme: "Дополнительные главы физики"),
         TimetableRow(startTime: "11:40", endTime: "13:10", teacher: "Анохина Инна Владимировна", subjectNeme: "Иностранный язык"),
-        TimetableRow(startTime: "13:30", endTime: "15:00", teacher: "Адольф Гитлер", subjectNeme: "Второй иностранный язык (немецкий)"),
+        TimetableRow(startTime: "13:30", endTime: "15:00", teacher: "Адольф Гитлер", subjectNeme: "Второй иностранный язык\n(немецкий)"),
         ]))
-        
+
         data.append(TimetableModel(name: "Среда", subjects: [
         TimetableRow(startTime: "10:00", endTime: "11:30", teacher: "Приискалов Роман Андреевич", subjectNeme: "Инструментальные средства разработки ПО"),
         TimetableRow(startTime: "11:40", endTime: "13:10", teacher: "Поляков Николай Алексеевич", subjectNeme: "Электротехника и электроника")
         ]))
-        
+
         data.append(TimetableModel(name: "Четверг", subjects: [
         TimetableRow(startTime: "10:00", endTime: "11:30", teacher: "Береснев Артем Дмитриевич", subjectNeme: "Администрирование в ОС Windows Server"),
         TimetableRow(startTime: "11:40", endTime: "13:10", teacher: "Рябчиков Игорь Александрович", subjectNeme: "Технологии программирования"),
         TimetableRow(startTime: "13:30", endTime: "15:00", teacher: "Рябчиков Игорь Александрович", subjectNeme: "Технологии программирования")
         ]))
-        
+
         data.append(TimetableModel(name: "Пятница", subjects: [
         TimetableRow(startTime: "10:00", endTime: "11:30", teacher: "Адольф Гитлер", subjectNeme: "Второй иностранный язык (немецкий)"),
         TimetableRow(startTime: "11:40", endTime: "13:10", teacher: "Анохина Инна Владимировна", subjectNeme: "Иностранный язык"),
@@ -91,10 +94,15 @@ class TimetableViewController: UIViewController {
 extension TimetableViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        data.count
+        return data.count + 1
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
+        if indexPath.row == data.count {
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: "AddTimetableCell", for: indexPath) as? AddTimetableCell else {return UITableViewCell()}
+            return cell
+        }
         
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "TimetableCell", for: indexPath) as? TimetableCell else {return UITableViewCell()}
         
@@ -108,7 +116,60 @@ extension TimetableViewController: UITableViewDataSource {
 // MARK: - TableView Delegate
 
 extension TimetableViewController: UITableViewDelegate {
+    
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        if indexPath.row == data.count {
+            return 60
+        }
+        
         return CGFloat(data[indexPath.row].subjects.count) * cellRowHeight + 20 + cellRowHeight/2
     }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        guard let cell = tableView.cellForRow(at: indexPath) as? AddTimetableCell else {
+            return
+        }
+        
+        cell.didSelect()
+        timetableView.showAddTimetableView()
+    }
+    
+    func tableView(_ tableView: UITableView, didHighlightRowAt indexPath: IndexPath) {
+        guard let cell = tableView.cellForRow(at: indexPath) as? AddTimetableCell else {
+            return
+        }
+        
+        cell.didHighlight()
+    }
+    
+    func tableView(_ tableView: UITableView, didUnhighlightRowAt indexPath: IndexPath) {
+        guard let cell = tableView.cellForRow(at: indexPath) as? AddTimetableCell else {
+            return
+        }
+        
+        cell.didUnhighlight()
+    }
+}
+
+// MARK: - AddTimetableViewDelegate
+
+extension TimetableViewController: AddTimetableViewDelegate {
+    
+    func addNewRow() {
+        let controller = presentationAssembly.addTimetableRowViewController()
+        controller.delegate = self
+        self.present(controller, animated: true)
+    }
+    
+}
+
+// MARK: - AddTimetableRowDelegate
+
+extension TimetableViewController: AddTimetableRowDelegate {
+    
+    func addNewRow(newRow: TimetableRow) {
+        timetableView.addTimetableView.data.append(newRow)
+        timetableView.addTimetableView.updateAnimation()
+    }
+    
 }

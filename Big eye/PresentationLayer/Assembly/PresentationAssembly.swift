@@ -12,6 +12,7 @@ protocol IPresentationAssembly {
     func eyeTabBarController() -> EyeTabBarController
     func groupViewController() -> UINavigationController
     func timetableViewController() -> UINavigationController
+    func addTimetableRowViewController() -> AddTimetableRowViewController
 }
 
 class PresentationAssembly: IPresentationAssembly {
@@ -78,5 +79,12 @@ class PresentationAssembly: IPresentationAssembly {
     
     private func timetableVCModel() -> ITimetableVCModel {
         return TimetableVCModel()
+    }
+    
+    // MARK: - AddTimetableViewController
+    
+    func addTimetableRowViewController() -> AddTimetableRowViewController {
+        let controller = AddTimetableRowViewController()
+        return controller
     }
 }

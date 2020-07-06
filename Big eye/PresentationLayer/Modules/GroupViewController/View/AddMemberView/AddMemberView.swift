@@ -169,8 +169,8 @@ class AddMemberView: UIView {
         endEditing(true)
         removeWithAnimation()
         
-        guard let firstName = newMemberView.firstAndLastNames.firstNameTextField.text,
-              let lastName = newMemberView.firstAndLastNames.lastNameTextField.text else {return}
+        guard let firstName = newMemberView.firstAndLastNames.firstTextField.text,
+              let lastName = newMemberView.firstAndLastNames.secondTextField.text else {return}
         
         var description = newMemberView.extraInfoTextField.text
         

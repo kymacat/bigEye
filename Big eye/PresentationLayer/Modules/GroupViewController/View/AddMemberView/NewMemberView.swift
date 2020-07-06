@@ -18,7 +18,7 @@ class NewMemberView: UIView {
         return button
     }()
     
-    let firstAndLastNames = NameTextField()
+    let firstAndLastNames = DoubleTextField(firstPlaceholder: "Имя", secondPlaceholder: "Фамилия")
     
     let extraInfoTextField: UITextView = {
         let view = UITextView()
@@ -58,12 +58,12 @@ class NewMemberView: UIView {
         backgroundColor = .white
         layer.cornerRadius = 15
         
-        firstAndLastNames.firstNameTextField.delegate = self
-        firstAndLastNames.lastNameTextField.delegate = self
+        firstAndLastNames.firstTextField.delegate = self
+        firstAndLastNames.secondTextField.delegate = self
         
         confirmButton.isEnabled = false
         
-        extraInfoTextField.font = firstAndLastNames.firstNameTextField.font
+        extraInfoTextField.font = firstAndLastNames.firstTextField.font
         extraInfoTextField.delegate = self
     }
     
@@ -152,8 +152,8 @@ extension NewMemberView: UITextViewDelegate {
 extension NewMemberView: UITextFieldDelegate {
     func textFieldDidChangeSelection(_ textField: UITextField) {
         guard
-            let firstName = firstAndLastNames.firstNameTextField.text,
-            let lastName = firstAndLastNames.lastNameTextField.text else {
+            let firstName = firstAndLastNames.firstTextField.text,
+            let lastName = firstAndLastNames.secondTextField.text else {
                 return
         }
         if firstName != "" && lastName != "" {

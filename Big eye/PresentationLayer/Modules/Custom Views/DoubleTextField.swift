@@ -1,5 +1,5 @@
 //
-//  NameTextField.swift
+//  DoubleTextField.swift
 //  Big eye
 //
 //  Created by Const. on 02.07.2020.
@@ -8,11 +8,11 @@
 
 import UIKit
 
-class NameTextField: UIView {
+class DoubleTextField: UIView {
     
     // MARK: - UI Elements
     
-    let firstNameTextField: UITextField = {
+    let firstTextField: UITextField = {
         let field = UITextField()
         field.attributedPlaceholder = NSAttributedString(string: "Имя",
                             attributes: [NSAttributedString.Key.foregroundColor: UIColor.gray])
@@ -21,7 +21,7 @@ class NameTextField: UIView {
         return field
     }()
     
-    let lastNameTextField: UITextField = {
+    let secondTextField: UITextField = {
         let field = UITextField()
         field.attributedPlaceholder = NSAttributedString(string: "Фамилия",
                             attributes: [NSAttributedString.Key.foregroundColor: UIColor.gray])
@@ -38,21 +38,26 @@ class NameTextField: UIView {
     
     // MARK: - Init
     
-    override init(frame: CGRect) {
-        super.init(frame: frame)
-        fill()
+    init(firstPlaceholder: String, secondPlaceholder: String) {
+        super.init(frame: CGRect())
+        fill(firstPlaceholder: firstPlaceholder, secondPlaceholder: secondPlaceholder)
     }
     
     required init?(coder: NSCoder) {
-        super.init(coder: coder)
-        fill()
+        fatalError("init(coder:) has not been implemented")
     }
     
     // MARK: - Fill view
     
-    private func fill() {
+    private func fill(firstPlaceholder: String, secondPlaceholder: String) {
         
         // MARK: - Started settings
+        
+        firstTextField.attributedPlaceholder = NSAttributedString(string: firstPlaceholder,
+        attributes: [NSAttributedString.Key.foregroundColor: UIColor.gray])
+        
+        secondTextField.attributedPlaceholder = NSAttributedString(string: secondPlaceholder,
+        attributes: [NSAttributedString.Key.foregroundColor: UIColor.gray])
         
         self.backgroundColor = .white
         self.layer.cornerRadius = 10
@@ -77,16 +82,16 @@ class NameTextField: UIView {
             firstNameView.heightAnchor.constraint(equalTo: self.heightAnchor, multiplier: 0.5)
         ])
         
-        self.addSubview(firstNameTextField)
-        firstNameTextField.translatesAutoresizingMaskIntoConstraints = false
+        self.addSubview(firstTextField)
+        firstTextField.translatesAutoresizingMaskIntoConstraints = false
         
         NSLayoutConstraint.activate([
-            firstNameTextField.centerYAnchor.constraint(equalTo: firstNameView.centerYAnchor),
-            firstNameTextField.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: leadingConst),
-            firstNameTextField.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: trailingConst)
+            firstTextField.centerYAnchor.constraint(equalTo: firstNameView.centerYAnchor),
+            firstTextField.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: leadingConst),
+            firstTextField.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: trailingConst)
         ])
         
-        // MARK: - lastNameTextField
+        // MARK: - secondTextField
         
         let lastNameView = UIView()
         
@@ -99,13 +104,13 @@ class NameTextField: UIView {
             lastNameView.heightAnchor.constraint(equalTo: self.heightAnchor, multiplier: 0.5)
         ])
         
-        self.addSubview(lastNameTextField)
-        lastNameTextField.translatesAutoresizingMaskIntoConstraints = false
+        self.addSubview(secondTextField)
+        secondTextField.translatesAutoresizingMaskIntoConstraints = false
         
         NSLayoutConstraint.activate([
-            lastNameTextField.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: leadingConst),
-            lastNameTextField.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: trailingConst),
-            lastNameTextField.centerYAnchor.constraint(equalTo: lastNameView.centerYAnchor)
+            secondTextField.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: leadingConst),
+            secondTextField.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: trailingConst),
+            secondTextField.centerYAnchor.constraint(equalTo: lastNameView.centerYAnchor)
         ])
         
         // MARK: - SeparationLine

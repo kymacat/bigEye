@@ -21,10 +21,17 @@
 		CF07863C24ABCD9200FC7D1A /* EyeTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF07863B24ABCD9200FC7D1A /* EyeTabBarController.swift */; };
 		CF1D177624AEFD59002C7F0F /* AddMemberCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF1D177524AEFD59002C7F0F /* AddMemberCell.swift */; };
 		CF1D177824AEFED1002C7F0F /* GradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF1D177724AEFED1002C7F0F /* GradientView.swift */; };
+		CF26B04D24B1FC4F00B4E1C4 /* AddTimetableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF26B04C24B1FC4F00B4E1C4 /* AddTimetableCell.swift */; };
+		CF26B05024B1FFEE00B4E1C4 /* AddTimetableCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF26B04F24B1FFEE00B4E1C4 /* AddTimetableCellView.swift */; };
+		CF26B05324B21CBE00B4E1C4 /* AddTimetableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF26B05224B21CBE00B4E1C4 /* AddTimetableView.swift */; };
 		CF465A5B24ADE847009E82CB /* AddMemberView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF465A5A24ADE847009E82CB /* AddMemberView.swift */; };
-		CF465A5D24ADEC1F009E82CB /* NameTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF465A5C24ADEC1F009E82CB /* NameTextField.swift */; };
+		CF465A5D24ADEC1F009E82CB /* DoubleTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF465A5C24ADEC1F009E82CB /* DoubleTextField.swift */; };
 		CF465A5F24ADECF1009E82CB /* NewMemberView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF465A5E24ADECF1009E82CB /* NewMemberView.swift */; };
 		CF465A6124ADFF66009E82CB /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF465A6024ADFF66009E82CB /* CustomButton.swift */; };
+		CF61EA1124B223DA004DAC89 /* NewTimetableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF61EA1024B223DA004DAC89 /* NewTimetableView.swift */; };
+		CF61EA1524B23101004DAC89 /* TimetableRowCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF61EA1424B23101004DAC89 /* TimetableRowCell.swift */; };
+		CF61EA1724B23146004DAC89 /* AddTimetableRowCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF61EA1624B23146004DAC89 /* AddTimetableRowCell.swift */; };
+		CF61EA1924B234AD004DAC89 /* AddTimetableRowCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF61EA1824B234AD004DAC89 /* AddTimetableRowCellView.swift */; };
 		CF80BC5B24ACFF7300BACABD /* GroupVCView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF80BC5A24ACFF7300BACABD /* GroupVCView.swift */; };
 		CF80BC5D24AD18D500BACABD /* GroupMemberCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF80BC5C24AD18D500BACABD /* GroupMemberCell.swift */; };
 		CFAE3E7B24AF619D0099B6AD /* Eye.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = CFAE3E7924AF619D0099B6AD /* Eye.xcdatamodeld */; };
@@ -32,6 +39,8 @@
 		CFAE3E8224AF789C0099B6AD /* Person.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFAE3E8024AF789C0099B6AD /* Person.swift */; };
 		CFAE3E8524AF7C690099B6AD /* GroupFileManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFAE3E8424AF7C690099B6AD /* GroupFileManager.swift */; };
 		CFAE3E8724AF80400099B6AD /* GroupService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFAE3E8624AF80400099B6AD /* GroupService.swift */; };
+		CFEC151024B3263E00B8990C /* AddTimetableRowViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFEC150F24B3263E00B8990C /* AddTimetableRowViewController.swift */; };
+		CFEC151224B32A7700B8990C /* AddTimetableRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFEC151124B32A7700B8990C /* AddTimetableRowView.swift */; };
 		CFF37D3924AA884100D89C80 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFF37D3824AA884100D89C80 /* AppDelegate.swift */; };
 		CFF37D4224AA884100D89C80 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CFF37D4124AA884100D89C80 /* Assets.xcassets */; };
 		CFF37D4524AA884100D89C80 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CFF37D4324AA884100D89C80 /* LaunchScreen.storyboard */; };
@@ -56,10 +65,17 @@
 		CF07863B24ABCD9200FC7D1A /* EyeTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EyeTabBarController.swift; sourceTree = "<group>"; };
 		CF1D177524AEFD59002C7F0F /* AddMemberCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddMemberCell.swift; sourceTree = "<group>"; };
 		CF1D177724AEFED1002C7F0F /* GradientView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientView.swift; sourceTree = "<group>"; };
+		CF26B04C24B1FC4F00B4E1C4 /* AddTimetableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTimetableCell.swift; sourceTree = "<group>"; };
+		CF26B04F24B1FFEE00B4E1C4 /* AddTimetableCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTimetableCellView.swift; sourceTree = "<group>"; };
+		CF26B05224B21CBE00B4E1C4 /* AddTimetableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTimetableView.swift; sourceTree = "<group>"; };
 		CF465A5A24ADE847009E82CB /* AddMemberView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddMemberView.swift; sourceTree = "<group>"; };
-		CF465A5C24ADEC1F009E82CB /* NameTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NameTextField.swift; sourceTree = "<group>"; };
+		CF465A5C24ADEC1F009E82CB /* DoubleTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoubleTextField.swift; sourceTree = "<group>"; };
 		CF465A5E24ADECF1009E82CB /* NewMemberView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewMemberView.swift; sourceTree = "<group>"; };
 		CF465A6024ADFF66009E82CB /* CustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
+		CF61EA1024B223DA004DAC89 /* NewTimetableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewTimetableView.swift; sourceTree = "<group>"; };
+		CF61EA1424B23101004DAC89 /* TimetableRowCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimetableRowCell.swift; sourceTree = "<group>"; };
+		CF61EA1624B23146004DAC89 /* AddTimetableRowCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTimetableRowCell.swift; sourceTree = "<group>"; };
+		CF61EA1824B234AD004DAC89 /* AddTimetableRowCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTimetableRowCellView.swift; sourceTree = "<group>"; };
 		CF80BC5A24ACFF7300BACABD /* GroupVCView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupVCView.swift; sourceTree = "<group>"; };
 		CF80BC5C24AD18D500BACABD /* GroupMemberCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupMemberCell.swift; sourceTree = "<group>"; };
 		CFAE3E7A24AF619D0099B6AD /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
@@ -67,6 +83,8 @@
 		CFAE3E8024AF789C0099B6AD /* Person.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Person.swift; sourceTree = "<group>"; };
 		CFAE3E8424AF7C690099B6AD /* GroupFileManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupFileManager.swift; sourceTree = "<group>"; };
 		CFAE3E8624AF80400099B6AD /* GroupService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupService.swift; sourceTree = "<group>"; };
+		CFEC150F24B3263E00B8990C /* AddTimetableRowViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTimetableRowViewController.swift; sourceTree = "<group>"; };
+		CFEC151124B32A7700B8990C /* AddTimetableRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTimetableRowView.swift; sourceTree = "<group>"; };
 		CFF37D3524AA884100D89C80 /* Big eye.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Big eye.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		CFF37D3824AA884100D89C80 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CFF37D4124AA884100D89C80 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -95,7 +113,7 @@
 				CF011E3624B0A43D0012D6F7 /* TimetableViewController.swift */,
 				CF011E3824B0A54D0012D6F7 /* TimetableVCModel.swift */,
 				CF011E4224B0C6780012D6F7 /* TimetableModel.swift */,
-				CF011E3F24B0C1300012D6F7 /* TimetableCell */,
+				CF26B04B24B1FC3800B4E1C4 /* Cells */,
 				CF011E3A24B0AC240012D6F7 /* View */,
 			);
 			path = TimetableViewController;
@@ -105,6 +123,8 @@
 			isa = PBXGroup;
 			children = (
 				CF011E3B24B0AC380012D6F7 /* TimetableView.swift */,
+				CF26B05124B21CAA00B4E1C4 /* AddTimetableView */,
+				CF011E4424B0CCC00012D6F7 /* SubjectView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -114,7 +134,6 @@
 			children = (
 				CF011E3D24B0B4150012D6F7 /* TimetableCell.swift */,
 				CF011E4024B0C14D0012D6F7 /* TimetableCellView.swift */,
-				CF011E4424B0CCC00012D6F7 /* SubjectView.swift */,
 			);
 			path = TimetableCell;
 			sourceTree = "<group>";
@@ -149,15 +168,69 @@
 			path = Cells;
 			sourceTree = "<group>";
 		};
+		CF26B04B24B1FC3800B4E1C4 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				CF011E3F24B0C1300012D6F7 /* TimetableCell */,
+				CF26B04E24B1FFCE00B4E1C4 /* AddTimetableCell */,
+				CF61EA1224B2308D004DAC89 /* TimetableRowCell */,
+				CF61EA1324B2309D004DAC89 /* AddTimetableRowCell */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
+		CF26B04E24B1FFCE00B4E1C4 /* AddTimetableCell */ = {
+			isa = PBXGroup;
+			children = (
+				CF26B04C24B1FC4F00B4E1C4 /* AddTimetableCell.swift */,
+				CF26B04F24B1FFEE00B4E1C4 /* AddTimetableCellView.swift */,
+			);
+			path = AddTimetableCell;
+			sourceTree = "<group>";
+		};
+		CF26B05124B21CAA00B4E1C4 /* AddTimetableView */ = {
+			isa = PBXGroup;
+			children = (
+				CF26B05224B21CBE00B4E1C4 /* AddTimetableView.swift */,
+				CF61EA1024B223DA004DAC89 /* NewTimetableView.swift */,
+			);
+			path = AddTimetableView;
+			sourceTree = "<group>";
+		};
+		CF26B05424B21E2700B4E1C4 /* Custom Views */ = {
+			isa = PBXGroup;
+			children = (
+				CF1D177724AEFED1002C7F0F /* GradientView.swift */,
+				CF465A6024ADFF66009E82CB /* CustomButton.swift */,
+				CF465A5C24ADEC1F009E82CB /* DoubleTextField.swift */,
+			);
+			path = "Custom Views";
+			sourceTree = "<group>";
+		};
 		CF465A6224AE16E1009E82CB /* AddMemberView */ = {
 			isa = PBXGroup;
 			children = (
 				CF465A5A24ADE847009E82CB /* AddMemberView.swift */,
 				CF465A5E24ADECF1009E82CB /* NewMemberView.swift */,
-				CF465A5C24ADEC1F009E82CB /* NameTextField.swift */,
-				CF465A6024ADFF66009E82CB /* CustomButton.swift */,
 			);
 			path = AddMemberView;
+			sourceTree = "<group>";
+		};
+		CF61EA1224B2308D004DAC89 /* TimetableRowCell */ = {
+			isa = PBXGroup;
+			children = (
+				CF61EA1424B23101004DAC89 /* TimetableRowCell.swift */,
+			);
+			path = TimetableRowCell;
+			sourceTree = "<group>";
+		};
+		CF61EA1324B2309D004DAC89 /* AddTimetableRowCell */ = {
+			isa = PBXGroup;
+			children = (
+				CF61EA1624B23146004DAC89 /* AddTimetableRowCell.swift */,
+				CF61EA1824B234AD004DAC89 /* AddTimetableRowCellView.swift */,
+			);
+			path = AddTimetableRowCell;
 			sourceTree = "<group>";
 		};
 		CF80BC5924ACFF4800BACABD /* View */ = {
@@ -165,7 +238,6 @@
 			children = (
 				CF80BC5A24ACFF7300BACABD /* GroupVCView.swift */,
 				CF465A6224AE16E1009E82CB /* AddMemberView */,
-				CF1D177724AEFED1002C7F0F /* GradientView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -186,6 +258,15 @@
 				CFAE3E8024AF789C0099B6AD /* Person.swift */,
 			);
 			path = Objects;
+			sourceTree = "<group>";
+		};
+		CFEC150E24B325CC00B8990C /* AddTimetbleRowViewController */ = {
+			isa = PBXGroup;
+			children = (
+				CFEC150F24B3263E00B8990C /* AddTimetableRowViewController.swift */,
+				CFEC151124B32A7700B8990C /* AddTimetableRowView.swift */,
+			);
+			path = AddTimetbleRowViewController;
 			sourceTree = "<group>";
 		};
 		CFF37D2C24AA884000D89C80 = {
@@ -285,6 +366,8 @@
 				CF07863624ABBE8D00FC7D1A /* EyeTabBarController */,
 				CF07863124ABB78000FC7D1A /* GroupViewController */,
 				CF011E3524B0A3FE0012D6F7 /* TimetableViewController */,
+				CFEC150E24B325CC00B8990C /* AddTimetbleRowViewController */,
+				CF26B05424B21E2700B4E1C4 /* Custom Views */,
 			);
 			path = Modules;
 			sourceTree = "<group>";
@@ -375,26 +458,35 @@
 				CF011E4324B0C6780012D6F7 /* TimetableModel.swift in Sources */,
 				CF465A6124ADFF66009E82CB /* CustomButton.swift in Sources */,
 				CF465A5B24ADE847009E82CB /* AddMemberView.swift in Sources */,
+				CFEC151224B32A7700B8990C /* AddTimetableRowView.swift in Sources */,
 				CFF37D5024AA8A7900D89C80 /* CoreAssembly.swift in Sources */,
 				CFF37D5C24AA8B2700D89C80 /* RootAssembly.swift in Sources */,
+				CF26B05324B21CBE00B4E1C4 /* AddTimetableView.swift in Sources */,
 				CF1D177824AEFED1002C7F0F /* GradientView.swift in Sources */,
+				CF61EA1724B23146004DAC89 /* AddTimetableRowCell.swift in Sources */,
 				CF011E3E24B0B4150012D6F7 /* TimetableCell.swift in Sources */,
 				CFAE3E8224AF789C0099B6AD /* Person.swift in Sources */,
 				CF011E4124B0C14D0012D6F7 /* TimetableCellView.swift in Sources */,
 				CF011E3924B0A54D0012D6F7 /* TimetableVCModel.swift in Sources */,
 				CFAE3E8724AF80400099B6AD /* GroupService.swift in Sources */,
+				CF26B05024B1FFEE00B4E1C4 /* AddTimetableCellView.swift in Sources */,
+				CFEC151024B3263E00B8990C /* AddTimetableRowViewController.swift in Sources */,
+				CF61EA1524B23101004DAC89 /* TimetableRowCell.swift in Sources */,
 				CFF37D5524AA8AB300D89C80 /* ServicesAssembly.swift in Sources */,
 				CF1D177624AEFD59002C7F0F /* AddMemberCell.swift in Sources */,
 				CFF37D5A24AA8AFC00D89C80 /* PresentationAssembly.swift in Sources */,
 				CF011E3C24B0AC380012D6F7 /* TimetableView.swift in Sources */,
 				CF07863A24ABCB1800FC7D1A /* EyeTabBar.swift in Sources */,
+				CF26B04D24B1FC4F00B4E1C4 /* AddTimetableCell.swift in Sources */,
 				CF011E4524B0CCC00012D6F7 /* SubjectView.swift in Sources */,
-				CF465A5D24ADEC1F009E82CB /* NameTextField.swift in Sources */,
+				CF465A5D24ADEC1F009E82CB /* DoubleTextField.swift in Sources */,
 				CF80BC5D24AD18D500BACABD /* GroupMemberCell.swift in Sources */,
 				CFAE3E7E24AF67520099B6AD /* CoreDataStack.swift in Sources */,
+				CF61EA1924B234AD004DAC89 /* AddTimetableRowCellView.swift in Sources */,
 				CF07863824ABBEAD00FC7D1A /* EyeTabBarItem.swift in Sources */,
 				CFF37D3924AA884100D89C80 /* AppDelegate.swift in Sources */,
 				CFAE3E7B24AF619D0099B6AD /* Eye.xcdatamodeld in Sources */,
+				CF61EA1124B223DA004DAC89 /* NewTimetableView.swift in Sources */,
 				CF011E3724B0A43D0012D6F7 /* TimetableViewController.swift in Sources */,
 				CF465A5F24ADECF1009E82CB /* NewMemberView.swift in Sources */,
 			);

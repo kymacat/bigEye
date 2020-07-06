@@ -9,6 +9,8 @@
 import UIKit
 
 class TimetableView: UIView {
+    
+    var addTimetableView = AddTimetableView()
    
     let tableView: UITableView = {
         let tableView = UITableView()
@@ -28,6 +30,25 @@ class TimetableView: UIView {
     required init?(coder: NSCoder) {
         super.init(coder: coder)
         fill()
+    }
+    
+    func showAddTimetableView() {
+        let newView = AddTimetableView()
+        newView.delegate = addTimetableView.delegate
+        addTimetableView = newView
+        
+        addSubview(addTimetableView)
+        
+        NSLayoutConstraint.activate([
+            addTimetableView.topAnchor.constraint(equalTo: topAnchor),
+            addTimetableView.leadingAnchor.constraint(equalTo: leadingAnchor),
+            addTimetableView.bottomAnchor.constraint(equalTo: bottomAnchor),
+            addTimetableView.trailingAnchor.constraint(equalTo: trailingAnchor)
+        ])
+        
+        addTimetableView.layoutIfNeeded()
+        
+        addTimetableView.showAnimation()
     }
     
     // MARK: - Fill view
