@@ -9,7 +9,8 @@
 import UIKit
 
 protocol AddTimetableViewDelegate {
-    func addNewRow()
+    func fillNewRow()
+    func addToTimetable(newItem: TimetableModel)
 }
 
 class AddTimetableView: UIView {
@@ -44,8 +45,13 @@ class AddTimetableView: UIView {
     private func setup() {
         translatesAutoresizingMaskIntoConstraints = false
         
+        let hideKeyboardRecognizer = UITapGestureRecognizer(target: self, action: #selector(tabGesture))
+        shadowView.addGestureRecognizer(hideKeyboardRecognizer)
+        
         newTimetableView.tableView.delegate = self
         newTimetableView.tableView.dataSource = self
+        
+        newTimetableView.headerTextField.delegate = self
         
         newTimetableView.tableView.register(TimetableRowCell.self, forCellReuseIdentifier: "timetableRowCell")
         newTimetableView.tableView.register(AddTimetableRowCell.self, forCellReuseIdentifier: "addTimetableRowCell")
@@ -54,32 +60,68 @@ class AddTimetableView: UIView {
         newTimetableView.confirmButton.addTarget(self, action: #selector(confirmButton), for: .touchUpInside)
     }
     
+    @objc func tabGesture() {
+        endEditing(true)
+    }
+    
     // MARK: - Animations
     
     @objc func cancelButton() {
+        isFinished = true
         removeWithAnimation()
     }
     
     @objc func confirmButton() {
+        guard let name = newTimetableView.headerTextField.text,
+            data.count != 0 else {
+            return
+        }
         
+        isFinished = true
+        let newItem = TimetableModel(name: name, subjects: data)
+        removeWithAnimation()
+        delegate?.addToTimetable(newItem: newItem)
     }
     
     private var startedConstraints = [NSLayoutConstraint]()
-    private var fixedConstraints = [NSLayoutConstraint]()
     private var finalConstraints = [NSLayoutConstraint]()
+    private var constraintsWithoutKeyboard = [NSLayoutConstraint]()
+    private var constraintsWithKeyboard = [NSLayoutConstraint]()
+    
+    var isFinished = false
+    
+    func setConstraintsWithoutKeyboard() {
+        if isFinished {return}
+        
+        NSLayoutConstraint.deactivate(constraintsWithKeyboard)
+        NSLayoutConstraint.activate(constraintsWithoutKeyboard)
+        
+        UIView.animate(withDuration: 2, animations: {
+            self.layoutIfNeeded()
+        })
+    }
+    
+    func setConstraintsWithKeyboard() {
+        NSLayoutConstraint.deactivate(constraintsWithoutKeyboard)
+        NSLayoutConstraint.activate(constraintsWithKeyboard)
+        
+        UIView.animate(withDuration: 2, animations: {
+            self.layoutIfNeeded()
+        })
+    }
     
     func showAnimation() {
         NSLayoutConstraint.deactivate(startedConstraints)
-        NSLayoutConstraint.activate(fixedConstraints)
+        NSLayoutConstraint.activate(constraintsWithoutKeyboard)
         
         UIView.animate(withDuration: 0.5, animations: {
             self.layoutIfNeeded()
-            self.shadowView.backgroundColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.2)
+            self.shadowView.backgroundColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.3)
         })
     }
     
     func removeWithAnimation() {
-        let allConstraints = startedConstraints + fixedConstraints
+        let allConstraints = startedConstraints + constraintsWithoutKeyboard + constraintsWithKeyboard
         NSLayoutConstraint.deactivate(allConstraints)
         NSLayoutConstraint.activate(finalConstraints)
         
@@ -117,12 +159,16 @@ class AddTimetableView: UIView {
             newTimetableView.topAnchor.constraint(equalTo: bottomAnchor)
         ]
         
-        fixedConstraints = [
-            newTimetableView.centerYAnchor.constraint(equalTo: centerYAnchor)
-        ]
-        
         finalConstraints = [
             newTimetableView.bottomAnchor.constraint(equalTo: topAnchor)
+        ]
+        
+        constraintsWithKeyboard = [
+            newTimetableView.topAnchor.constraint(equalTo: topAnchor, constant: 150)
+        ]
+        
+        constraintsWithoutKeyboard = [
+            newTimetableView.centerYAnchor.constraint(equalTo: centerYAnchor)
         ]
         
         NSLayoutConstraint.activate([
@@ -147,9 +193,10 @@ class AddTimetableView: UIView {
         }
         
         heightConstraint.isActive = false
+        let headerHeight: CGFloat = 30
         let rowHeight: CGFloat = 75
         let buttonsHeight: CGFloat = 45
-        heightConstraint = newTimetableView.heightAnchor.constraint(equalToConstant: rowHeight * CGFloat(data.count + 1) + buttonsHeight)
+        heightConstraint = newTimetableView.heightAnchor.constraint(equalToConstant: rowHeight * CGFloat(data.count + 1) + buttonsHeight + headerHeight)
         heightConstraint.isActive = true
     }
 }
@@ -159,7 +206,7 @@ class AddTimetableView: UIView {
 extension AddTimetableView: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if data.count == 0 {
+        if data.count == 0 || newTimetableView.headerTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines) == "" {
             newTimetableView.confirmButton.isEnabled = false
         } else {
             newTimetableView.confirmButton.isEnabled = true
@@ -195,7 +242,7 @@ extension AddTimetableView: UITableViewDelegate {
         }
         
         cell.didSelect()
-        delegate?.addNewRow()
+        delegate?.fillNewRow()
     }
     
     func tableView(_ tableView: UITableView, didHighlightRowAt indexPath: IndexPath) {
@@ -213,4 +260,23 @@ extension AddTimetableView: UITableViewDelegate {
         
         cell.didUnhighlight()
     }
+}
+
+// MARK: - TextFieldDelegate
+
+extension AddTimetableView: UITextFieldDelegate {
+    
+    func textFieldDidChangeSelection(_ textField: UITextField) {
+        if data.count == 0 || newTimetableView.headerTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines) == "" {
+            newTimetableView.confirmButton.isEnabled = false
+        } else {
+            newTimetableView.confirmButton.isEnabled = true
+        }
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        endEditing(true)
+        return false
+    }
+    
 }

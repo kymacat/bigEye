@@ -83,6 +83,33 @@ class TimetableViewController: UIViewController {
         
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWasShown), name: UIResponder.keyboardWillShowNotification, object: nil)
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillBeHidden), name: UIResponder.keyboardWillHideNotification, object: nil)
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        
+        NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillShowNotification, object: nil)
+        
+        NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillHideNotification, object: nil)
+        
+    }
+    
+    // MARK: - Keyboard show/hide
+    
+    @objc func keyboardWasShown() {
+        timetableView.setConstraintsWithKeyboard()
+    }
+    
+    @objc func keyboardWillBeHidden() {
+        timetableView.setConstraintsWithoutKeyboard()
+    }
+    
     
     //test data
     var data: [TimetableModel] = []
@@ -155,10 +182,15 @@ extension TimetableViewController: UITableViewDelegate {
 
 extension TimetableViewController: AddTimetableViewDelegate {
     
-    func addNewRow() {
+    func fillNewRow() {
         let controller = presentationAssembly.addTimetableRowViewController()
         controller.delegate = self
         self.present(controller, animated: true)
+    }
+    
+    func addToTimetable(newItem: TimetableModel) {
+        data.append(newItem)
+        timetableView.tableView.reloadData()
     }
     
 }

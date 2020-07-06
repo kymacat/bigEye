@@ -14,8 +14,6 @@ class DoubleTextField: UIView {
     
     let firstTextField: UITextField = {
         let field = UITextField()
-        field.attributedPlaceholder = NSAttributedString(string: "Имя",
-                            attributes: [NSAttributedString.Key.foregroundColor: UIColor.gray])
         field.textColor = .black
         field.keyboardAppearance = .light
         return field
@@ -23,8 +21,6 @@ class DoubleTextField: UIView {
     
     let secondTextField: UITextField = {
         let field = UITextField()
-        field.attributedPlaceholder = NSAttributedString(string: "Фамилия",
-                            attributes: [NSAttributedString.Key.foregroundColor: UIColor.gray])
         field.textColor = .black
         field.keyboardAppearance = .light
         return field

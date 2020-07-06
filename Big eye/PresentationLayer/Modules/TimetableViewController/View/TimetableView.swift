@@ -51,6 +51,14 @@ class TimetableView: UIView {
         addTimetableView.showAnimation()
     }
     
+    func setConstraintsWithKeyboard() {
+        addTimetableView.setConstraintsWithKeyboard()
+    }
+    
+    func setConstraintsWithoutKeyboard() {
+        addTimetableView.setConstraintsWithoutKeyboard()
+    }
+    
     // MARK: - Fill view
     
     private func fill() {
