@@ -52,6 +52,17 @@ class EyeTabBarController: UITabBarController {
     @objc func switchTab(button: UIButton) {
         let newIndex = button.tag
         changeTab(from: selectedIndex, to: newIndex)
+        
+        //update statistics
+        if newIndex == 2 && selectedIndex != 2 {
+            if let navigationController = viewControllers?[2] as? UINavigationController {
+                if let controller = navigationController.viewControllers.first as? StatisticsViewController {
+                    controller.getCurrData()
+                }
+                
+            }
+        }
+        
         selectedIndex = newIndex
     }
     

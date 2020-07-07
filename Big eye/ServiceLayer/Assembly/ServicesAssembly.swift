@@ -12,6 +12,7 @@ protocol IServicesAssembly {
     var groupService: IGroupService { get }
     var timetableService: ITimetableService { get }
     var markAttendanceService: IMarkAttendanceService { get }
+    var statisticsService: IStatisticsService { get }
 }
 
 class ServicesAssembly: IServicesAssembly {
@@ -27,4 +28,6 @@ class ServicesAssembly: IServicesAssembly {
     lazy var timetableService: ITimetableService = TimetableService(dataManager: coreAssembly.timetableFileManager)
     
     lazy var markAttendanceService: IMarkAttendanceService = MarkAttendanceService(groupDataManager: coreAssembly.groupFileManager, statFileManager: coreAssembly.statisticsFileManager)
+    
+    lazy var statisticsService: IStatisticsService = StatisticsService(fileManager: coreAssembly.statisticsFileManager)
 }

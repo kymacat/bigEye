@@ -10,6 +10,7 @@ import CoreData
 
 protocol IStatisticsFileManager {
     func saveReport(date: Date, teacher: String, subject: String, marks: [AttendanceModel])
+    func fetchStatistics() -> [StatisticsCell]
 }
 
 class StatisticsFileManager: CoreDataStack, IStatisticsFileManager {
@@ -45,36 +46,8 @@ class StatisticsFileManager: CoreDataStack, IStatisticsFileManager {
         
     }
     
-    func saveCell(name: String, rows: [TimetableRowModel]) {
-
-        guard let entityDescription = NSEntityDescription.entity(forEntityName: "SheduleCell", in: self.managedObjectContext) else {
-            print("entity description error")
-            return
-        }
-
-        let managedObject = SheduleCell(entity: entityDescription, insertInto: self.managedObjectContext)
-
-        managedObject.name = name
-        
-        for row in rows {
-            guard let rowEntityDescription = NSEntityDescription.entity(forEntityName: "SheduleRow", in: self.managedObjectContext) else {
-                print("entity description error")
-                continue
-            }
-            let rowManagedObject = SheduleRow(entity: rowEntityDescription, insertInto: self.managedObjectContext)
-            
-            rowManagedObject.configure(subject: row.subjectNeme, teacher: row.teacher, startTime: row.startTime, endTime: row.endTime)
-            
-            managedObject.addToRows(rowManagedObject)
-        }
-        
-
-        self.saveContext(complition: nil)
-        
-    }
-    
-    func fetchTimetable() -> [SheduleCell] {
-        let fetchRequest = NSFetchRequest<SheduleCell>(entityName: "SheduleCell")
+    func fetchStatistics() -> [StatisticsCell] {
+        let fetchRequest = NSFetchRequest<StatisticsCell>(entityName: "StatisticsCell")
         do {
             let chedule = try self.managedObjectContext.fetch(fetchRequest)
             return chedule

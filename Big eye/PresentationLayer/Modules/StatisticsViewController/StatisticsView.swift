@@ -35,6 +35,7 @@ class StatisticsView: UIView {
         chartView.usePercentValuesEnabled = true
         chartView.holeRadiusPercent = 0.3
         chartView.transparentCircleRadiusPercent = 0.4
+        chartView.chartDescription?.text = ""
     }
     
     // MARK: - Fill

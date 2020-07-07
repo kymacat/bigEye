@@ -18,10 +18,13 @@ class StatisticsViewController: UIViewController {
     //view
     private let statView = StatisticsView()
     
-    var iosDataEntry = PieChartDataEntry(value: 50)
-    var macDataEntry = PieChartDataEntry(value: 30)
     
-    var numberOfDounloadsDataEntries = [PieChartDataEntry]()
+    var data = [StatisticsModel]()
+    
+    var visitDataEntry = PieChartDataEntry(value: 0)
+    var passDataEntry = PieChartDataEntry(value: 0)
+    
+    var dataEntries = [PieChartDataEntry]()
     
     // MARK: - Init
     
@@ -45,19 +48,31 @@ class StatisticsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        statView.chartView.chartDescription?.text = ""
+        visitDataEntry.label = "Посещения"
+        passDataEntry.label = "Пропуски"
         
-        iosDataEntry.label = "iOS"
-        macDataEntry.label = "macOS"
+        dataEntries = [visitDataEntry, passDataEntry]
         
-        numberOfDounloadsDataEntries = [iosDataEntry, macDataEntry]
-        
-        updateChartData()
+        getCurrData()
         
     }
     
+    func getCurrData() {
+        data = model.fetchStatistics()
+        
+        guard data.count != 0 else {
+            setEmptyChart()
+            return
+        }
+        
+        let visitsAndPasses = model.countOfVisitsAndPasses(model: data)
+        visitDataEntry.value = visitsAndPasses.0
+        passDataEntry.value = visitsAndPasses.1
+        updateChartData()
+    }
+    
     func updateChartData() {
-        let chartDataSet = PieChartDataSet(entries: numberOfDounloadsDataEntries, label: nil)
+        let chartDataSet = PieChartDataSet(entries: dataEntries, label: nil)
         let object = PieChartData(dataSet: chartDataSet)
         
         let pFormatter = NumberFormatter()
@@ -69,9 +84,24 @@ class StatisticsViewController: UIViewController {
         object.setValueFont(.systemFont(ofSize: 11, weight: .light))
         object.setValueTextColor(.black)
         
-        let colors = [UIColor.red, UIColor.green]
+        let colors = [UIColor.systemGreen, UIColor.systemRed]
         
         chartDataSet.colors = colors 
+        
+        statView.chartView.data = object
+        
+        statView.chartView.animate(xAxisDuration: 1, yAxisDuration: 1)
+    }
+    
+    func setEmptyChart() {
+        visitDataEntry.value = 1
+        let chartDataSet = PieChartDataSet(entries: dataEntries, label: nil)
+        let object = PieChartData(dataSet: chartDataSet)
+        object.setValueTextColor(.gray)
+        
+        let colors = [UIColor.gray]
+        
+        chartDataSet.colors = colors
         
         statView.chartView.data = object
         

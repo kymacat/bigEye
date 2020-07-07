@@ -118,6 +118,6 @@ class PresentationAssembly: IPresentationAssembly {
     }
     
     private func statisticsVCModel() -> IStatisticsVCModel {
-        return StatisticsVCModel()
+        return StatisticsVCModel(service: serviceAssembly.statisticsService)
     }
 }
