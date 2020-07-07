@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Charts
 
 class StatisticsViewController: UIViewController {
     
@@ -14,9 +15,13 @@ class StatisticsViewController: UIViewController {
     private let model: IStatisticsVCModel
     private let presentationAssembly: IPresentationAssembly
     
-    
     //view
     private let statView = StatisticsView()
+    
+    var iosDataEntry = PieChartDataEntry(value: 50)
+    var macDataEntry = PieChartDataEntry(value: 30)
+    
+    var numberOfDounloadsDataEntries = [PieChartDataEntry]()
     
     // MARK: - Init
     
@@ -39,7 +44,38 @@ class StatisticsViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        statView.chartView.chartDescription?.text = ""
+        
+        iosDataEntry.label = "iOS"
+        macDataEntry.label = "macOS"
+        
+        numberOfDounloadsDataEntries = [iosDataEntry, macDataEntry]
+        
+        updateChartData()
+        
     }
-
+    
+    func updateChartData() {
+        let chartDataSet = PieChartDataSet(entries: numberOfDounloadsDataEntries, label: nil)
+        let object = PieChartData(dataSet: chartDataSet)
+        
+        let pFormatter = NumberFormatter()
+        pFormatter.numberStyle = .percent
+        pFormatter.maximumFractionDigits = 1
+        pFormatter.multiplier = 1
+        pFormatter.percentSymbol = "%"
+        object.setValueFormatter(DefaultValueFormatter(formatter: pFormatter))
+        object.setValueFont(.systemFont(ofSize: 11, weight: .light))
+        object.setValueTextColor(.black)
+        
+        let colors = [UIColor.red, UIColor.green]
+        
+        chartDataSet.colors = colors 
+        
+        statView.chartView.data = object
+        
+        statView.chartView.animate(xAxisDuration: 1, yAxisDuration: 1)
+    }
+    
 }

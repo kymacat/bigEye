@@ -20,7 +20,7 @@ protocol IPresentationAssembly {
     
     func markAttendanceViewController(teacher: String, subject: String) -> MarkAttendanceViewController
     
-    func statisticsViewController() -> StatisticsViewController
+    func statisticsViewController() -> UINavigationController
 }
 
 class PresentationAssembly: IPresentationAssembly {
@@ -110,10 +110,11 @@ class PresentationAssembly: IPresentationAssembly {
     
     // MARK: - StatisticsViewController
     
-    func statisticsViewController() -> StatisticsViewController {
+    func statisticsViewController() -> UINavigationController {
         let model = statisticsVCModel()
         let controller = StatisticsViewController(model: model, assembly: self)
-        return controller
+        controller.navigationItem.title = "Статистика"
+        return navigationViewController(with: controller)
     }
     
     private func statisticsVCModel() -> IStatisticsVCModel {
