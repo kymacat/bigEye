@@ -10,7 +10,7 @@ import UIKit
 
 class SubjectView: UIView {
     
-    let row: TimetableRow
+    let row: TimetableRowModel
     
     // MARK: - UI
     
@@ -52,7 +52,7 @@ class SubjectView: UIView {
     
     // MARK: - Init
     
-    init(with row: TimetableRow) {
+    init(with row: TimetableRowModel) {
         self.row = row
         super.init(frame: CGRect())
         fill()

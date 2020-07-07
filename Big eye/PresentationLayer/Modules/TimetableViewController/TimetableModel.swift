@@ -10,10 +10,10 @@ import Foundation
 
 struct TimetableModel {
     let name: String
-    let subjects: [TimetableRow]
+    let subjects: [TimetableRowModel]
 }
 
-struct TimetableRow {
+struct TimetableRowModel {
     let startTime: String
     let endTime: String
     let teacher: String

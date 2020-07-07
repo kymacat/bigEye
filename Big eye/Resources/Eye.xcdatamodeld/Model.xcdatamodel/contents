@@ -6,7 +6,20 @@
         <attribute name="info" optional="YES" attributeType="String"/>
         <attribute name="lastName" attributeType="String"/>
     </entity>
+    <entity name="SheduleCell" representedClassName="SheduleCell" syncable="YES">
+        <attribute name="name" attributeType="String"/>
+        <relationship name="rows" toMany="YES" deletionRule="Cascade" destinationEntity="SheduleRow" inverseName="cell" inverseEntity="SheduleRow"/>
+    </entity>
+    <entity name="SheduleRow" representedClassName="SheduleRow" syncable="YES">
+        <attribute name="endTime" optional="YES" attributeType="String"/>
+        <attribute name="startTime" optional="YES" attributeType="String"/>
+        <attribute name="subject" optional="YES" attributeType="String"/>
+        <attribute name="teacher" optional="YES" attributeType="String"/>
+        <relationship name="cell" maxCount="1" deletionRule="Nullify" destinationEntity="SheduleCell" inverseName="rows" inverseEntity="SheduleCell"/>
+    </entity>
     <elements>
-        <element name="Person" positionX="-63" positionY="-18" width="128" height="103"/>
+        <element name="Person" positionX="-56.26171875" positionY="-44.046875" width="128" height="103"/>
+        <element name="SheduleCell" positionX="52.34375" positionY="-180.7265625" width="128" height="73"/>
+        <element name="SheduleRow" positionX="235.25" positionY="-53.85546875" width="128" height="118"/>
     </elements>
 </model>

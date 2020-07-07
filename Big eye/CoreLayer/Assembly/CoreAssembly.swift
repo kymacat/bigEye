@@ -10,8 +10,10 @@ import Foundation
 
 protocol ICoreAssembly {
     var groupFileManager: IGroupFileManager { get }
+    var timetableFileManager: ITimetableFileManager { get }
 }
 
 class CoreAssembly: ICoreAssembly {
     lazy var groupFileManager: IGroupFileManager = GroupFileManager()
+    lazy var timetableFileManager: ITimetableFileManager = TimetableFileManager()
 }

@@ -26,7 +26,7 @@ class AddTimetableView: UIView {
     
     let newTimetableView = NewTimetableView()
     
-    var data = [TimetableRow]()
+    var data = [TimetableRowModel]()
     
     // MARK: - Init
     

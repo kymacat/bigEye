@@ -18,6 +18,8 @@ class TimetableViewController: UIViewController {
     private let timetableView = TimetableView()
     private let cellRowHeight: CGFloat = 75
     
+    private var data: [TimetableModel] = []
+    
     // MARK: - Init
     
     init(model: ITimetableVCModel, assembly: IPresentationAssembly) {
@@ -49,37 +51,7 @@ class TimetableViewController: UIViewController {
         timetableView.tableView.register(TimetableCell.self, forCellReuseIdentifier: "TimetableCell")
         timetableView.tableView.register(AddTimetableCell.self, forCellReuseIdentifier: "AddTimetableCell")
         
-        
-        // test data
-        data.append(TimetableModel(name: "Понедельник", subjects: [
-        TimetableRow(startTime: "11:40", endTime: "13:10", teacher: "Кудрявцева Ирина Владимировна", subjectNeme: "Математическая статистика"),
-        TimetableRow(startTime: "13:30", endTime: "15:00", teacher: "Кудрявцева Ирина Владимировна", subjectNeme: "Математическая статистика"),
-        TimetableRow(startTime: "15:20", endTime: "16:50", teacher: "Поляков Николай Алексеевич", subjectNeme: "Электротехника и электроника")
-        ]))
-
-        data.append(TimetableModel(name: "Вторник", subjects: [
-        TimetableRow(startTime: "08:20", endTime: "09:50", teacher: "Егоров Михаил Юрьевич", subjectNeme: "Дополнительные главы физики"),
-        TimetableRow(startTime: "10:00", endTime: "11:30", teacher: "Стафеев Сергей Константинович", subjectNeme: "Дополнительные главы физики"),
-        TimetableRow(startTime: "11:40", endTime: "13:10", teacher: "Анохина Инна Владимировна", subjectNeme: "Иностранный язык"),
-        TimetableRow(startTime: "13:30", endTime: "15:00", teacher: "Адольф Гитлер", subjectNeme: "Второй иностранный язык\n(немецкий)"),
-        ]))
-
-        data.append(TimetableModel(name: "Среда", subjects: [
-        TimetableRow(startTime: "10:00", endTime: "11:30", teacher: "Приискалов Роман Андреевич", subjectNeme: "Инструментальные средства разработки ПО"),
-        TimetableRow(startTime: "11:40", endTime: "13:10", teacher: "Поляков Николай Алексеевич", subjectNeme: "Электротехника и электроника")
-        ]))
-
-        data.append(TimetableModel(name: "Четверг", subjects: [
-        TimetableRow(startTime: "10:00", endTime: "11:30", teacher: "Береснев Артем Дмитриевич", subjectNeme: "Администрирование в ОС Windows Server"),
-        TimetableRow(startTime: "11:40", endTime: "13:10", teacher: "Рябчиков Игорь Александрович", subjectNeme: "Технологии программирования"),
-        TimetableRow(startTime: "13:30", endTime: "15:00", teacher: "Рябчиков Игорь Александрович", subjectNeme: "Технологии программирования")
-        ]))
-
-        data.append(TimetableModel(name: "Пятница", subjects: [
-        TimetableRow(startTime: "10:00", endTime: "11:30", teacher: "Адольф Гитлер", subjectNeme: "Второй иностранный язык (немецкий)"),
-        TimetableRow(startTime: "11:40", endTime: "13:10", teacher: "Анохина Инна Владимировна", subjectNeme: "Иностранный язык"),
-        TimetableRow(startTime: "13:30", endTime: "15:00", teacher: "Собенников Виктор Леонидович", subjectNeme: "Технологии программирования")
-        ]))
+        data = model.fetchCells()
         
     }
     
@@ -110,9 +82,6 @@ class TimetableViewController: UIViewController {
         timetableView.setConstraintsWithoutKeyboard()
     }
     
-    
-    //test data
-    var data: [TimetableModel] = []
 }
 
 
@@ -191,6 +160,7 @@ extension TimetableViewController: AddTimetableViewDelegate {
     func addToTimetable(newItem: TimetableModel) {
         data.append(newItem)
         timetableView.tableView.reloadData()
+        model.saveCell(cell: newItem)
     }
     
 }
@@ -199,7 +169,7 @@ extension TimetableViewController: AddTimetableViewDelegate {
 
 extension TimetableViewController: AddTimetableRowDelegate {
     
-    func addNewRow(newRow: TimetableRow) {
+    func addNewRow(newRow: TimetableRowModel) {
         timetableView.addTimetableView.data.append(newRow)
         timetableView.addTimetableView.updateAnimation()
     }

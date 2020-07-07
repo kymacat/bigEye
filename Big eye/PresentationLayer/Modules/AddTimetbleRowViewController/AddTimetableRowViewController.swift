@@ -9,7 +9,7 @@
 import UIKit
 
 protocol AddTimetableRowDelegate {
-    func addNewRow(newRow: TimetableRow)
+    func addNewRow(newRow: TimetableRowModel)
 }
 
 class AddTimetableRowViewController: UIViewController {
@@ -83,7 +83,7 @@ class AddTimetableRowViewController: UIViewController {
         let endedHourForRow = generateReadableTime(time: endedHour)
         let endedMinuteForRow = generateReadableTime(time: endedMinute)
         
-        let timetableRow = TimetableRow(startTime: "\(startedHourForRow):\(startedMinuteForRow)", endTime: "\(endedHourForRow):\(endedMinuteForRow)", teacher: teacher, subjectNeme: subject)
+        let timetableRow = TimetableRowModel(startTime: "\(startedHourForRow):\(startedMinuteForRow)", endTime: "\(endedHourForRow):\(endedMinuteForRow)", teacher: teacher, subjectNeme: subject)
         
         dismiss(animated: true, completion: {
             self.delegate?.addNewRow(newRow: timetableRow)

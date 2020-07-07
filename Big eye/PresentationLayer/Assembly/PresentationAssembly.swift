@@ -78,7 +78,7 @@ class PresentationAssembly: IPresentationAssembly {
     }
     
     private func timetableVCModel() -> ITimetableVCModel {
-        return TimetableVCModel()
+        return TimetableVCModel(service: serviceAssembly.timetableService)
     }
     
     // MARK: - AddTimetableViewController

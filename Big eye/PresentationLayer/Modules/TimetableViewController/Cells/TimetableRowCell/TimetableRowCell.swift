@@ -24,7 +24,7 @@ class TimetableRowCell: UITableViewCell {
         selectionStyle = .none
     }
     
-    func configure(with row: TimetableRow) {
+    func configure(with row: TimetableRowModel) {
         rowView = SubjectView(with: row)
         fill()
     }
