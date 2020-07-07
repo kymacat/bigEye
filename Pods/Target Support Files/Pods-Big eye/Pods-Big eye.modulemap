@@ -1,0 +1,6 @@
+framework module Pods_Big_eye {
+  umbrella header "Pods-Big eye-umbrella.h"
+
+  export *
+  module * { export * }
+}

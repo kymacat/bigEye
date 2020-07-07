@@ -9,11 +9,18 @@
 import UIKit
 
 protocol IPresentationAssembly {
+    
     func eyeTabBarController() -> EyeTabBarController
+    
     func groupViewController() -> UINavigationController
+    
     func timetableViewController() -> UINavigationController
+    
     func addTimetableRowViewController() -> AddTimetableRowViewController
+    
     func markAttendanceViewController(teacher: String, subject: String) -> MarkAttendanceViewController
+    
+    func statisticsViewController() -> StatisticsViewController
 }
 
 class PresentationAssembly: IPresentationAssembly {
@@ -35,7 +42,7 @@ class PresentationAssembly: IPresentationAssembly {
 
         
         controller.setTabBar(items: [groupItem, timetableItem, statisticsItem])
-        controller.viewControllers = [groupViewController(), timetableViewController(), UIViewController()]
+        controller.viewControllers = [groupViewController(), timetableViewController(), statisticsViewController()]
         
         return controller
     }
@@ -99,5 +106,17 @@ class PresentationAssembly: IPresentationAssembly {
     
     private func markAttendanceVCModel() -> IMarkAttendanceVCModel {
         return MarkAttendanceVCModel(service: serviceAssembly.markAttendanceService)
+    }
+    
+    // MARK: - StatisticsViewController
+    
+    func statisticsViewController() -> StatisticsViewController {
+        let model = statisticsVCModel()
+        let controller = StatisticsViewController(model: model, assembly: self)
+        return controller
+    }
+    
+    private func statisticsVCModel() -> IStatisticsVCModel {
+        return StatisticsVCModel()
     }
 }
