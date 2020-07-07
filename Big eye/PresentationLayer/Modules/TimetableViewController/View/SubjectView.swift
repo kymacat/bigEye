@@ -8,9 +8,14 @@
 
 import UIKit
 
+protocol SubjectViewDelegate {
+    func markAttendance(teacher: String, subject: String)
+}
+
 class SubjectView: UIView {
     
     let row: TimetableRowModel
+    var delegate: SubjectViewDelegate?
     
     // MARK: - UI
     
@@ -50,6 +55,13 @@ class SubjectView: UIView {
         return label
     }()
     
+    let mainButton: UIButton = {
+       let button = UIButton()
+        button.addTarget(self, action: #selector(mainButtonTouched), for: .touchUpInside)
+        button.translatesAutoresizingMaskIntoConstraints = false
+        return button
+    }()
+    
     // MARK: - Init
     
     init(with row: TimetableRowModel) {
@@ -60,6 +72,18 @@ class SubjectView: UIView {
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    @objc func mainButtonTouched() {
+        backgroundColor = UIColor(red: 200/255, green: 200/255, blue: 200/255, alpha: 1)
+        UIView.animate(withDuration: 0.5, animations: {
+            self.backgroundColor = .clear
+        })
+        
+        guard let teacher = teacher.text, let subject = subjectName.text
+            else { return }
+        
+        delegate?.markAttendance(teacher: teacher, subject: subject)
     }
     
     
@@ -73,7 +97,8 @@ class SubjectView: UIView {
         startTime.text = row.startTime
         NSLayoutConstraint.activate([
             startTime.topAnchor.constraint(equalTo: topAnchor, constant: 10),
-            startTime.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 10)
+            startTime.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 10),
+            startTime.widthAnchor.constraint(equalTo: widthAnchor, multiplier: 1/7)
         ])
         
         addSubview(subjectName)
@@ -101,6 +126,15 @@ class SubjectView: UIView {
         NSLayoutConstraint.activate([
             teacher.topAnchor.constraint(equalTo: subjectName.bottomAnchor, constant: 5),
             teacher.leadingAnchor.constraint(equalTo: subjectName.leadingAnchor)
+        ])
+        
+        addSubview(mainButton)
+        
+        NSLayoutConstraint.activate([
+            mainButton.topAnchor.constraint(equalTo: topAnchor),
+            mainButton.bottomAnchor.constraint(equalTo: bottomAnchor),
+            mainButton.leadingAnchor.constraint(equalTo: leadingAnchor),
+            mainButton.trailingAnchor.constraint(equalTo: trailingAnchor)
         ])
         
     }

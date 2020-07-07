@@ -8,10 +8,15 @@
 
 import UIKit
 
+protocol TimetableCellDelegate {
+    func markAttendance(teacher: String, subject: String)
+}
+
 class TimetableCellView: UIView {
     
     let model: TimetableModel
     let rowHeight: CGFloat
+    var delegate: TimetableCellDelegate?
     
     let header: UIView = {
        let view = UIView()
@@ -97,7 +102,7 @@ class TimetableCellView: UIView {
     
     private func addRow(row: SubjectView, previous: SubjectView?) {
         addSubview(row)
-        
+        row.delegate = self
         if let previousView = previous {
             
             let separationLine = UIView()
@@ -140,4 +145,12 @@ extension UIView {
         mask.path = path.cgPath
         layer.mask = mask
     }
+}
+
+extension TimetableCellView: SubjectViewDelegate {
+    
+    func markAttendance(teacher: String, subject: String) {
+        delegate?.markAttendance(teacher: teacher, subject: subject)
+    }
+    
 }

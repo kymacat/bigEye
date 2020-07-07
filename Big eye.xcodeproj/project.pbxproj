@@ -39,6 +39,14 @@
 		CFAE3E8224AF789C0099B6AD /* Person.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFAE3E8024AF789C0099B6AD /* Person.swift */; };
 		CFAE3E8524AF7C690099B6AD /* GroupFileManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFAE3E8424AF7C690099B6AD /* GroupFileManager.swift */; };
 		CFAE3E8724AF80400099B6AD /* GroupService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFAE3E8624AF80400099B6AD /* GroupService.swift */; };
+		CFB0609324B4A3A0007EA961 /* MarkAttendanceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFB0609224B4A3A0007EA961 /* MarkAttendanceViewController.swift */; };
+		CFB0609524B4A549007EA961 /* MarkAttendanceVCView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFB0609424B4A549007EA961 /* MarkAttendanceVCView.swift */; };
+		CFB0609724B4BA43007EA961 /* CopyAndPasteDesabledTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFB0609624B4BA43007EA961 /* CopyAndPasteDesabledTextField.swift */; };
+		CFB0609924B4C2B8007EA961 /* MarkAttendanceCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFB0609824B4C2B8007EA961 /* MarkAttendanceCell.swift */; };
+		CFB0609B24B4C838007EA961 /* CheckBoxButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFB0609A24B4C838007EA961 /* CheckBoxButton.swift */; };
+		CFB0609D24B4CEEA007EA961 /* MarkAttendanceVCModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFB0609C24B4CEEA007EA961 /* MarkAttendanceVCModel.swift */; };
+		CFB0609F24B4CFA2007EA961 /* MarkAttendanceService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFB0609E24B4CFA2007EA961 /* MarkAttendanceService.swift */; };
+		CFB060A224B4D3C7007EA961 /* AttendanceModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFB060A124B4D3C7007EA961 /* AttendanceModel.swift */; };
 		CFBBC56224B4407900A2661D /* SheduleRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFBBC55E24B4407800A2661D /* SheduleRow.swift */; };
 		CFBBC56424B4407900A2661D /* SheduleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFBBC56024B4407900A2661D /* SheduleCell.swift */; };
 		CFBBC56724B4414800A2661D /* TimetableFileManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFBBC56624B4414800A2661D /* TimetableFileManager.swift */; };
@@ -87,6 +95,14 @@
 		CFAE3E8024AF789C0099B6AD /* Person.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Person.swift; sourceTree = "<group>"; };
 		CFAE3E8424AF7C690099B6AD /* GroupFileManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupFileManager.swift; sourceTree = "<group>"; };
 		CFAE3E8624AF80400099B6AD /* GroupService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupService.swift; sourceTree = "<group>"; };
+		CFB0609224B4A3A0007EA961 /* MarkAttendanceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarkAttendanceViewController.swift; sourceTree = "<group>"; };
+		CFB0609424B4A549007EA961 /* MarkAttendanceVCView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarkAttendanceVCView.swift; sourceTree = "<group>"; };
+		CFB0609624B4BA43007EA961 /* CopyAndPasteDesabledTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CopyAndPasteDesabledTextField.swift; sourceTree = "<group>"; };
+		CFB0609824B4C2B8007EA961 /* MarkAttendanceCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarkAttendanceCell.swift; sourceTree = "<group>"; };
+		CFB0609A24B4C838007EA961 /* CheckBoxButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckBoxButton.swift; sourceTree = "<group>"; };
+		CFB0609C24B4CEEA007EA961 /* MarkAttendanceVCModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarkAttendanceVCModel.swift; sourceTree = "<group>"; };
+		CFB0609E24B4CFA2007EA961 /* MarkAttendanceService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarkAttendanceService.swift; sourceTree = "<group>"; };
+		CFB060A124B4D3C7007EA961 /* AttendanceModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttendanceModel.swift; sourceTree = "<group>"; };
 		CFBBC55E24B4407800A2661D /* SheduleRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SheduleRow.swift; sourceTree = "<group>"; };
 		CFBBC56024B4407900A2661D /* SheduleCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SheduleCell.swift; sourceTree = "<group>"; };
 		CFBBC56624B4414800A2661D /* TimetableFileManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimetableFileManager.swift; sourceTree = "<group>"; };
@@ -211,6 +227,8 @@
 				CF1D177724AEFED1002C7F0F /* GradientView.swift */,
 				CF465A6024ADFF66009E82CB /* CustomButton.swift */,
 				CF465A5C24ADEC1F009E82CB /* DoubleTextField.swift */,
+				CFB0609624B4BA43007EA961 /* CopyAndPasteDesabledTextField.swift */,
+				CFB0609A24B4C838007EA961 /* CheckBoxButton.swift */,
 			);
 			path = "Custom Views";
 			sourceTree = "<group>";
@@ -269,6 +287,26 @@
 				CFBBC55E24B4407800A2661D /* SheduleRow.swift */,
 			);
 			path = Objects;
+			sourceTree = "<group>";
+		};
+		CFB0609124B4A306007EA961 /* MarkAttendanceViewController */ = {
+			isa = PBXGroup;
+			children = (
+				CFB0609224B4A3A0007EA961 /* MarkAttendanceViewController.swift */,
+				CFB0609824B4C2B8007EA961 /* MarkAttendanceCell.swift */,
+				CFB060A024B4D39E007EA961 /* Models */,
+				CFB0609424B4A549007EA961 /* MarkAttendanceVCView.swift */,
+			);
+			path = MarkAttendanceViewController;
+			sourceTree = "<group>";
+		};
+		CFB060A024B4D39E007EA961 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				CFB0609C24B4CEEA007EA961 /* MarkAttendanceVCModel.swift */,
+				CFB060A124B4D3C7007EA961 /* AttendanceModel.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 		CFEC150E24B325CC00B8990C /* AddTimetbleRowViewController */ = {
@@ -351,6 +389,7 @@
 			children = (
 				CFAE3E8624AF80400099B6AD /* GroupService.swift */,
 				CFBBC56824B442D000A2661D /* TimetableService.swift */,
+				CFB0609E24B4CFA2007EA961 /* MarkAttendanceService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -379,6 +418,7 @@
 				CF07863124ABB78000FC7D1A /* GroupViewController */,
 				CF011E3524B0A3FE0012D6F7 /* TimetableViewController */,
 				CFEC150E24B325CC00B8990C /* AddTimetbleRowViewController */,
+				CFB0609124B4A306007EA961 /* MarkAttendanceViewController */,
 				CF26B05424B21E2700B4E1C4 /* Custom Views */,
 			);
 			path = Modules;
@@ -466,11 +506,14 @@
 				CF07863524ABB96D00FC7D1A /* GroupVCModel.swift in Sources */,
 				CF07863C24ABCD9200FC7D1A /* EyeTabBarController.swift in Sources */,
 				CFAE3E8524AF7C690099B6AD /* GroupFileManager.swift in Sources */,
+				CFB0609724B4BA43007EA961 /* CopyAndPasteDesabledTextField.swift in Sources */,
+				CFB0609924B4C2B8007EA961 /* MarkAttendanceCell.swift in Sources */,
 				CF07863324ABB8F400FC7D1A /* GroupViewController.swift in Sources */,
 				CF011E4324B0C6780012D6F7 /* TimetableModel.swift in Sources */,
 				CF465A6124ADFF66009E82CB /* CustomButton.swift in Sources */,
 				CFBBC56924B442D000A2661D /* TimetableService.swift in Sources */,
 				CF465A5B24ADE847009E82CB /* AddMemberView.swift in Sources */,
+				CFB060A224B4D3C7007EA961 /* AttendanceModel.swift in Sources */,
 				CFEC151224B32A7700B8990C /* AddTimetableRowView.swift in Sources */,
 				CFF37D5024AA8A7900D89C80 /* CoreAssembly.swift in Sources */,
 				CFF37D5C24AA8B2700D89C80 /* RootAssembly.swift in Sources */,
@@ -479,6 +522,7 @@
 				CF1D177824AEFED1002C7F0F /* GradientView.swift in Sources */,
 				CF61EA1724B23146004DAC89 /* AddTimetableRowCell.swift in Sources */,
 				CF011E3E24B0B4150012D6F7 /* TimetableCell.swift in Sources */,
+				CFB0609D24B4CEEA007EA961 /* MarkAttendanceVCModel.swift in Sources */,
 				CFBBC56224B4407900A2661D /* SheduleRow.swift in Sources */,
 				CFAE3E8224AF789C0099B6AD /* Person.swift in Sources */,
 				CF011E4124B0C14D0012D6F7 /* TimetableCellView.swift in Sources */,
@@ -488,11 +532,14 @@
 				CFEC151024B3263E00B8990C /* AddTimetableRowViewController.swift in Sources */,
 				CF61EA1524B23101004DAC89 /* TimetableRowCell.swift in Sources */,
 				CFF37D5524AA8AB300D89C80 /* ServicesAssembly.swift in Sources */,
+				CFB0609324B4A3A0007EA961 /* MarkAttendanceViewController.swift in Sources */,
 				CF1D177624AEFD59002C7F0F /* AddMemberCell.swift in Sources */,
+				CFB0609F24B4CFA2007EA961 /* MarkAttendanceService.swift in Sources */,
 				CFF37D5A24AA8AFC00D89C80 /* PresentationAssembly.swift in Sources */,
 				CF011E3C24B0AC380012D6F7 /* TimetableView.swift in Sources */,
 				CF07863A24ABCB1800FC7D1A /* EyeTabBar.swift in Sources */,
 				CF26B04D24B1FC4F00B4E1C4 /* AddTimetableCell.swift in Sources */,
+				CFB0609B24B4C838007EA961 /* CheckBoxButton.swift in Sources */,
 				CF011E4524B0CCC00012D6F7 /* SubjectView.swift in Sources */,
 				CFBBC56724B4414800A2661D /* TimetableFileManager.swift in Sources */,
 				CF465A5D24ADEC1F009E82CB /* DoubleTextField.swift in Sources */,
@@ -502,6 +549,7 @@
 				CF07863824ABBEAD00FC7D1A /* EyeTabBarItem.swift in Sources */,
 				CFF37D3924AA884100D89C80 /* AppDelegate.swift in Sources */,
 				CFAE3E7B24AF619D0099B6AD /* Eye.xcdatamodeld in Sources */,
+				CFB0609524B4A549007EA961 /* MarkAttendanceVCView.swift in Sources */,
 				CF61EA1124B223DA004DAC89 /* NewTimetableView.swift in Sources */,
 				CF011E3724B0A43D0012D6F7 /* TimetableViewController.swift in Sources */,
 				CF465A5F24ADECF1009E82CB /* NewMemberView.swift in Sources */,

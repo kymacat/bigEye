@@ -42,7 +42,14 @@ class TimetableService: ITimetableService {
                 newRows.append(newRow)
             }
             
-            let newCell = TimetableModel(name: cell.name, subjects: newRows)
+            let sortedRows = newRows.sorted { (first, second) -> Bool in
+                if first.startTime < second.startTime {
+                    return true
+                }
+                return false
+            }
+            
+            let newCell = TimetableModel(name: cell.name, subjects: sortedRows)
             
             currTimetable.append(newCell)
         }

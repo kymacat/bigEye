@@ -48,6 +48,7 @@ class TimetableViewController: UIViewController {
         
         timetableView.addTimetableView.delegate = self
         
+        
         timetableView.tableView.register(TimetableCell.self, forCellReuseIdentifier: "TimetableCell")
         timetableView.tableView.register(AddTimetableCell.self, forCellReuseIdentifier: "AddTimetableCell")
         
@@ -103,6 +104,7 @@ extension TimetableViewController: UITableViewDataSource {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "TimetableCell", for: indexPath) as? TimetableCell else {return UITableViewCell()}
         
         cell.configure(model: data[indexPath.row], rowHeight: cellRowHeight)
+        cell.timetableView?.delegate = self
         
         return cell
     }
@@ -172,6 +174,17 @@ extension TimetableViewController: AddTimetableRowDelegate {
     func addNewRow(newRow: TimetableRowModel) {
         timetableView.addTimetableView.data.append(newRow)
         timetableView.addTimetableView.updateAnimation()
+    }
+    
+}
+
+// MARK: - TimetableCellDelegate
+
+extension TimetableViewController: TimetableCellDelegate {
+    
+    func markAttendance(teacher: String, subject: String) {
+        let controller = presentationAssembly.markAttendanceViewController(teacher: teacher, subject: subject)
+        self.present(controller, animated: true)
     }
     
 }

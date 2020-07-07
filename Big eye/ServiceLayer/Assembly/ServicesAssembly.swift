@@ -11,6 +11,7 @@ import Foundation
 protocol IServicesAssembly {
     var groupService: IGroupService { get }
     var timetableService: ITimetableService { get }
+    var markAttendanceService: IMarkAttendanceService { get }
 }
 
 class ServicesAssembly: IServicesAssembly {
@@ -24,4 +25,6 @@ class ServicesAssembly: IServicesAssembly {
     lazy var groupService: IGroupService = GroupService(dataManager: coreAssembly.groupFileManager)
     
     lazy var timetableService: ITimetableService = TimetableService(dataManager: coreAssembly.timetableFileManager)
+    
+    lazy var markAttendanceService: IMarkAttendanceService = MarkAttendanceService(groupDataManager: coreAssembly.groupFileManager)
 }

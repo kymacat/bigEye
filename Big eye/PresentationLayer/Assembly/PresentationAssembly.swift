@@ -13,6 +13,7 @@ protocol IPresentationAssembly {
     func groupViewController() -> UINavigationController
     func timetableViewController() -> UINavigationController
     func addTimetableRowViewController() -> AddTimetableRowViewController
+    func markAttendanceViewController(teacher: String, subject: String) -> MarkAttendanceViewController
 }
 
 class PresentationAssembly: IPresentationAssembly {
@@ -86,5 +87,17 @@ class PresentationAssembly: IPresentationAssembly {
     func addTimetableRowViewController() -> AddTimetableRowViewController {
         let controller = AddTimetableRowViewController()
         return controller
+    }
+    
+    // MARK: - MarkAttendanceViewController
+    
+    func markAttendanceViewController(teacher: String, subject: String) -> MarkAttendanceViewController {
+        let model = markAttendanceVCModel()
+        let controller = MarkAttendanceViewController(model: model, teacher: teacher, subject: subject)
+        return controller
+    }
+    
+    private func markAttendanceVCModel() -> IMarkAttendanceVCModel {
+        return MarkAttendanceVCModel(service: serviceAssembly.markAttendanceService)
     }
 }
