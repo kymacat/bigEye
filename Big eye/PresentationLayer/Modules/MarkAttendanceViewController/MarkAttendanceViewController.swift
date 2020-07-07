@@ -44,12 +44,18 @@ class MarkAttendanceViewController: UIViewController {
         data = model.fetchData()
         
         attendanceView.saveButton.addTarget(self, action: #selector(saveAction), for: .touchUpInside)
+        attendanceView.cancelButton.addTarget(self, action: #selector(cancelAction), for: .touchUpInside)
     }
     
     @objc func saveAction() {
-        for a in data {
-            print(a.person.lastName, a.isAttended)
-        }
+        guard data.count > 0 else { return }
+        let date = attendanceView.datePicker.date
+        model.saveStatistics(date: date, teacher: attendanceView.teacher, subject: attendanceView.subject, stat: data)
+        dismiss(animated: true, completion: nil)
+    }
+    
+    @objc func cancelAction() {
+        dismiss(animated: true, completion: nil)
     }
 
 }

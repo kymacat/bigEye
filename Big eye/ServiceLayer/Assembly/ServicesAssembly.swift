@@ -26,5 +26,5 @@ class ServicesAssembly: IServicesAssembly {
     
     lazy var timetableService: ITimetableService = TimetableService(dataManager: coreAssembly.timetableFileManager)
     
-    lazy var markAttendanceService: IMarkAttendanceService = MarkAttendanceService(groupDataManager: coreAssembly.groupFileManager)
+    lazy var markAttendanceService: IMarkAttendanceService = MarkAttendanceService(groupDataManager: coreAssembly.groupFileManager, statFileManager: coreAssembly.statisticsFileManager)
 }

@@ -9,6 +9,7 @@
 import Foundation
 
 protocol IMarkAttendanceVCModel {
+    func saveStatistics(date: Date, teacher: String, subject: String, stat: [AttendanceModel])
     func fetchData() -> [AttendanceModel]
 }
 
@@ -22,5 +23,9 @@ class MarkAttendanceVCModel: IMarkAttendanceVCModel {
 
     func fetchData() -> [AttendanceModel] {
         return service.fetchGroupMembers()
+    }
+    
+    func saveStatistics(date: Date, teacher: String, subject: String, stat: [AttendanceModel]) {
+        service.saveReport(date: date, teacher: teacher, subject: subject, stat: stat)
     }
 }

@@ -10,14 +10,17 @@ import Foundation
 
 protocol IMarkAttendanceService {
     func fetchGroupMembers() -> [AttendanceModel]
+    func saveReport(date: Date, teacher: String, subject: String, stat: [AttendanceModel])
 }
 
 class MarkAttendanceService: IMarkAttendanceService {
     
     private let groupDataManager: IGroupFileManager
+    private let statDataManager: IStatisticsFileManager
     
-    init(groupDataManager: IGroupFileManager) {
+    init(groupDataManager: IGroupFileManager, statFileManager: IStatisticsFileManager) {
         self.groupDataManager = groupDataManager
+        self.statDataManager = statFileManager
     }
     
     func fetchGroupMembers() -> [AttendanceModel] {
@@ -42,6 +45,10 @@ class MarkAttendanceService: IMarkAttendanceService {
         
         return sortedModel
         
+    }
+    
+    func saveReport(date: Date, teacher: String, subject: String, stat: [AttendanceModel]) {
+        statDataManager.saveReport(date: date, teacher: teacher, subject: subject, marks: stat)
     }
     
 }

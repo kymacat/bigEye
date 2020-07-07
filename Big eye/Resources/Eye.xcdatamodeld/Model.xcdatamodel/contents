@@ -1,5 +1,11 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="16119" systemVersion="19F101" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="AttendanceMark" representedClassName="AttendanceMark" syncable="YES">
+        <attribute name="firstName" attributeType="String"/>
+        <attribute name="lastName" attributeType="String"/>
+        <attribute name="mark" attributeType="Boolean" usesScalarValueType="YES"/>
+        <relationship name="statistics" maxCount="1" deletionRule="Nullify" destinationEntity="StatisticsCell" inverseName="attendenceMarks" inverseEntity="StatisticsCell"/>
+    </entity>
     <entity name="Person" representedClassName="Person" syncable="YES">
         <attribute name="firstName" attributeType="String"/>
         <attribute name="image" optional="YES" attributeType="Binary"/>
@@ -17,9 +23,17 @@
         <attribute name="teacher" optional="YES" attributeType="String"/>
         <relationship name="cell" maxCount="1" deletionRule="Nullify" destinationEntity="SheduleCell" inverseName="rows" inverseEntity="SheduleCell"/>
     </entity>
+    <entity name="StatisticsCell" representedClassName="StatisticsCell" syncable="YES">
+        <attribute name="date" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="subject" attributeType="String"/>
+        <attribute name="teacher" attributeType="String"/>
+        <relationship name="attendenceMarks" toMany="YES" deletionRule="Nullify" destinationEntity="AttendanceMark" inverseName="statistics" inverseEntity="AttendanceMark"/>
+    </entity>
     <elements>
-        <element name="Person" positionX="-56.26171875" positionY="-44.046875" width="128" height="103"/>
-        <element name="SheduleCell" positionX="52.34375" positionY="-180.7265625" width="128" height="73"/>
-        <element name="SheduleRow" positionX="235.25" positionY="-53.85546875" width="128" height="118"/>
+        <element name="Person" positionX="-125.01171875" positionY="20.4375" width="128" height="103"/>
+        <element name="SheduleCell" positionX="-31.7421875" positionY="-122.18359375" width="128" height="73"/>
+        <element name="SheduleRow" positionX="162.140625" positionY="-70.125" width="128" height="118"/>
+        <element name="StatisticsCell" positionX="285.87890625" positionY="69.04296875" width="128" height="103"/>
+        <element name="AttendanceMark" positionX="52.97265625" positionY="162.5390625" width="128" height="103"/>
     </elements>
 </model>
