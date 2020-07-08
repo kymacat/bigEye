@@ -16,8 +16,8 @@ class StatisticsViewController: UIViewController {
     private let presentationAssembly: IPresentationAssembly
     
     //view
-    private let statView = StatisticsView()
-    
+    private let statView: StatisticsView
+    var groupMember: GroupMemberModel?
     
     var data = [StatisticsModel]()
     
@@ -97,9 +97,10 @@ class StatisticsViewController: UIViewController {
     
     // MARK: - Init
     
-    init(model: IStatisticsVCModel, assembly: IPresentationAssembly) {
+    init(model: IStatisticsVCModel, assembly: IPresentationAssembly, isPersonallyStatistics: Bool) {
         self.model = model
         self.presentationAssembly = assembly
+        statView = StatisticsView(isPersonallyStatistics: isPersonallyStatistics)
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -117,6 +118,10 @@ class StatisticsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        if let firstName = groupMember?.firstName, let lastName = groupMember?.lastName {
+            navigationItem.title = lastName + " " + firstName
+        }
+        
         mainDataEntries = [totalVisitDataEntry, totalsPassDataEntry]
         bestSubjectDataEntries = [bestSubjectVisitsDataEntry, bestSubjectPassesDataEntry]
         badSubjectDataEntries = [badSubjectVisitsDataEntry, badSubjectPassesDataEntry]
@@ -131,6 +136,10 @@ class StatisticsViewController: UIViewController {
     
     func getCurrData() {
         data = model.fetchStatistics()
+        
+        if let person = groupMember, statView.isPersonallyStatistics {
+            data = model.getPersonallyStatistics(model: data, person: person)
+        }
         
         guard data.count != 0 else {
             setEmptyChart(chart: statView.mainChartView, entries: mainDataEntries)

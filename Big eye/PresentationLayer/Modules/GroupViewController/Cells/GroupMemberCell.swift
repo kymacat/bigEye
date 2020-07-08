@@ -55,7 +55,10 @@ class GroupMemberCell: UICollectionViewCell {
     
     // MARK: - Configure
     
+    var model: GroupMemberModel?
+    
     func configure(with model: GroupMemberModel) {
+        self.model = model
         if let image = model.image {
             imageView.image = image
         } else {
@@ -110,20 +113,20 @@ class GroupMemberCell: UICollectionViewCell {
             imageView.heightAnchor.constraint(equalTo: imageView.widthAnchor)
         ])
         
-        addSubview(firstNameLabel)
-        
-        NSLayoutConstraint.activate([
-            firstNameLabel.topAnchor.constraint(equalTo: topAnchor, constant: 18),
-            firstNameLabel.leadingAnchor.constraint(equalTo: imageView.trailingAnchor, constant: 10),
-            firstNameLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -5)
-        ])
-        
         addSubview(lastNameLabel)
         
         NSLayoutConstraint.activate([
-            lastNameLabel.topAnchor.constraint(equalTo: firstNameLabel.bottomAnchor, constant: 2),
+            lastNameLabel.topAnchor.constraint(equalTo: topAnchor, constant: 18),
             lastNameLabel.leadingAnchor.constraint(equalTo: imageView.trailingAnchor, constant: 10),
             lastNameLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -5)
+        ])
+        
+        addSubview(firstNameLabel)
+        
+        NSLayoutConstraint.activate([
+            firstNameLabel.topAnchor.constraint(equalTo: lastNameLabel.bottomAnchor, constant: 2),
+            firstNameLabel.leadingAnchor.constraint(equalTo: imageView.trailingAnchor, constant: 10),
+            firstNameLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -5)
         ])
     }
 }

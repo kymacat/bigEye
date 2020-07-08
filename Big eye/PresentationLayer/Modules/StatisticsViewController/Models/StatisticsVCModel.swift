@@ -21,11 +21,18 @@ struct VisitsAndPasses {
 
 protocol IStatisticsVCModel {
     func fetchStatistics() -> [StatisticsModel]
+    
     func countOfVisitsAndPasses(model: [StatisticsModel]) -> VisitsAndPasses
+    
     func bestSubjectVisitsAndPasses(model: [StatisticsModel]) -> StatModel
+    
     func badSubjectVisitsAndPasses(model: [StatisticsModel]) -> StatModel
+    
     func bestStudentVisitsAndPasses(model: [StatisticsModel]) -> StatModel
+    
     func badStudentVisitsAndPasses(model: [StatisticsModel]) -> StatModel
+    
+    func getPersonallyStatistics(model: [StatisticsModel], person: GroupMemberModel) -> [StatisticsModel]
 }
 
 class StatisticsVCModel: IStatisticsVCModel {
@@ -181,5 +188,24 @@ class StatisticsVCModel: IStatisticsVCModel {
         }
         
         return badStudent
+    }
+    
+    func getPersonallyStatistics(model: [StatisticsModel], person: GroupMemberModel) -> [StatisticsModel] {
+        var newData = [StatisticsModel]()
+        
+        for cell in model {
+            var newMarks = [AttendanceModel]()
+            
+            for mark in cell.marks {
+                if mark.person.firstName == person.firstName && mark.person.lastName == person.lastName {
+                    newMarks.append(mark)
+                }
+            }
+            
+            let newCell = StatisticsModel(date: cell.date, teacher: cell.teacher, subject: cell.subject, marks: newMarks)
+            newData.append(newCell)
+        }
+        
+        return newData
     }
 }

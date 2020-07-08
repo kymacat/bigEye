@@ -117,6 +117,10 @@ extension GroupViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         if let cell = collectionView.cellForItem(at: indexPath) as? GroupMemberCell {
             cell.didSelect()
+            let controller = presentationAssembly.statisticsViewController(isPersonallyStatistics: true)
+            controller.groupMember = cell.model
+            navigationController?.pushViewController(controller, animated: true)
+            
         }
         
         if let cell = collectionView.cellForItem(at: indexPath) as? AddMemberCell {

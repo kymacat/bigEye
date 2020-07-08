@@ -12,15 +12,15 @@ protocol IPresentationAssembly {
     
     func eyeTabBarController() -> EyeTabBarController
     
-    func groupViewController() -> UINavigationController
+    func groupViewController() -> GroupViewController
     
-    func timetableViewController() -> UINavigationController
+    func timetableViewController() -> TimetableViewController
     
     func addTimetableRowViewController() -> AddTimetableRowViewController
     
     func markAttendanceViewController(teacher: String, subject: String) -> MarkAttendanceViewController
     
-    func statisticsViewController() -> UINavigationController
+    func statisticsViewController(isPersonallyStatistics: Bool) -> StatisticsViewController
 }
 
 class PresentationAssembly: IPresentationAssembly {
@@ -44,12 +44,20 @@ class PresentationAssembly: IPresentationAssembly {
         controller.setTabBar(items: [groupItem, timetableItem, statisticsItem])
         
         let groupController = groupViewController()
+        groupController.navigationItem.title = "Группа"
+        let navigationGroupController = navigationViewController(with: groupController)
+        
         let timetableController = timetableViewController()
-        let statisticsController = statisticsViewController()
+        timetableController.navigationItem.title = "Расписание"
+        let navigationTimetableController = navigationViewController(with: timetableController)
         
-        controller.swithDelegate = statisticsController.viewControllers.first as? StatisticsViewController
+        let statisticsController = statisticsViewController(isPersonallyStatistics: false)
+        statisticsController.navigationItem.title = "Статистика"
+        controller.swithDelegate = statisticsController
+        let navigationStatisticsController = navigationViewController(with: statisticsController)
         
-        controller.viewControllers = [groupController, timetableController, statisticsController]
+        
+        controller.viewControllers = [navigationGroupController, navigationTimetableController, navigationStatisticsController]
         
         return controller
     }
@@ -70,12 +78,11 @@ class PresentationAssembly: IPresentationAssembly {
     
     // MARK: - GroupViewController
     
-    func groupViewController() -> UINavigationController {
+    func groupViewController() -> GroupViewController {
         let model = groupVCModel()
         let controller = GroupViewController(model: model, assembly: self)
-        controller.navigationItem.title = "Группа"
         
-        return navigationViewController(with: controller)
+        return controller
     }
     
     private func groupVCModel() -> IGroupVCModel {
@@ -84,12 +91,11 @@ class PresentationAssembly: IPresentationAssembly {
     
     // MARK: - TimetableViewController
     
-    func timetableViewController() -> UINavigationController {
+    func timetableViewController() -> TimetableViewController {
         let model = timetableVCModel()
         let controller = TimetableViewController(model: model, assembly: self)
-        controller.navigationItem.title = "Расписание"
         
-        return navigationViewController(with: controller)
+        return controller
     }
     
     private func timetableVCModel() -> ITimetableVCModel {
@@ -117,11 +123,10 @@ class PresentationAssembly: IPresentationAssembly {
     
     // MARK: - StatisticsViewController
     
-    func statisticsViewController() -> UINavigationController {
+    func statisticsViewController(isPersonallyStatistics: Bool) -> StatisticsViewController {
         let model = statisticsVCModel()
-        let controller = StatisticsViewController(model: model, assembly: self)
-        controller.navigationItem.title = "Статистика"
-        return navigationViewController(with: controller)
+        let controller = StatisticsViewController(model: model, assembly: self, isPersonallyStatistics: isPersonallyStatistics)
+        return controller
     }
     
     private func statisticsVCModel() -> IStatisticsVCModel {

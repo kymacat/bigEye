@@ -11,6 +11,8 @@ import Charts
 
 class StatisticsView: UIView {
     
+    var isPersonallyStatistics: Bool
+    
     let scrollView: UIScrollView = {
        let scrollView = UIScrollView()
         scrollView.translatesAutoresizingMaskIntoConstraints = false
@@ -93,17 +95,18 @@ class StatisticsView: UIView {
     
     // MARK: - Init
     
-    override init(frame: CGRect) {
-        super.init(frame: frame)
+    init(isPersonallyStatistics: Bool) {
+        self.isPersonallyStatistics = isPersonallyStatistics
+        super.init(frame: CGRect())
         fill()
         setup()
     }
     
     required init?(coder: NSCoder) {
-        super.init(coder: coder)
-        fill()
-        setup()
+        fatalError("init(coder:) has not been implemented")
     }
+    
+
     
     // MARK: - Setup
     
@@ -204,6 +207,10 @@ class StatisticsView: UIView {
             badJubjectChartView.heightAnchor.constraint(equalTo: bestJubjectChartView.widthAnchor)
         ])
         
+        if isPersonallyStatistics {
+            badJubjectChartView.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor, constant: -20).isActive = true
+            return
+        }
         
         // MARK: - Best student chart
         
