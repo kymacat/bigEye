@@ -42,7 +42,14 @@ class PresentationAssembly: IPresentationAssembly {
 
         
         controller.setTabBar(items: [groupItem, timetableItem, statisticsItem])
-        controller.viewControllers = [groupViewController(), timetableViewController(), statisticsViewController()]
+        
+        let groupController = groupViewController()
+        let timetableController = timetableViewController()
+        let statisticsController = statisticsViewController()
+        
+        controller.swithDelegate = statisticsController.viewControllers.first as? StatisticsViewController
+        
+        controller.viewControllers = [groupController, timetableController, statisticsController]
         
         return controller
     }

@@ -8,7 +8,14 @@
 
 import UIKit
 
+protocol EyeTabBarDelegate {
+    func switchedToNewController(idOfNewController: Int)
+}
+
 class EyeTabBarController: UITabBarController {
+    
+    var swithDelegate: EyeTabBarDelegate?
+    
     var eyeTabBar: EyeTabBar!
     var selectedColor = UIColor(red: 90/255, green: 220/255, blue: 255/255, alpha: 1)
     var normalColor = UIColor.gray {
@@ -51,21 +58,16 @@ class EyeTabBarController: UITabBarController {
 
     @objc func switchTab(button: UIButton) {
         let newIndex = button.tag
-        changeTab(from: selectedIndex, to: newIndex)
         
-        //update statistics
-        if newIndex == 2 && selectedIndex != 2 {
-            if let navigationController = viewControllers?[2] as? UINavigationController {
-                if let controller = navigationController.viewControllers.first as? StatisticsViewController {
-                    if controller.isViewLoaded {
-                        controller.getCurrData()
-                    }
-                }
-                
-            }
+        guard newIndex != selectedIndex else {
+            return
         }
         
+        changeTab(from: selectedIndex, to: newIndex)
+        
+        swithDelegate?.switchedToNewController(idOfNewController: newIndex)
         selectedIndex = newIndex
+        
     }
     
      private func changeTab(from fromIndex: Int, to toIndex: Int) {

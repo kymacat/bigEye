@@ -223,3 +223,15 @@ class StatisticsViewController: UIViewController {
     }
     
 }
+
+// MARK: - EyeTabBarDelegate
+
+extension StatisticsViewController: EyeTabBarDelegate {
+    
+    func switchedToNewController(idOfNewController: Int) {
+        if isViewLoaded && idOfNewController == 2 {
+            getCurrData()
+        }
+    }
+    
+}
