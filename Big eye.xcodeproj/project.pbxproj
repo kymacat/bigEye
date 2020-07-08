@@ -42,6 +42,7 @@
 		CF61EA1924B234AD004DAC89 /* AddTimetableRowCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF61EA1824B234AD004DAC89 /* AddTimetableRowCellView.swift */; };
 		CF80BC5B24ACFF7300BACABD /* GroupVCView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF80BC5A24ACFF7300BACABD /* GroupVCView.swift */; };
 		CF80BC5D24AD18D500BACABD /* GroupMemberCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF80BC5C24AD18D500BACABD /* GroupMemberCell.swift */; };
+		CF86F4B024B6187E00FA8D58 /* Big_eyeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF86F4AF24B6187E00FA8D58 /* Big_eyeTests.swift */; };
 		CFAE3E7B24AF619D0099B6AD /* Eye.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = CFAE3E7924AF619D0099B6AD /* Eye.xcdatamodeld */; };
 		CFAE3E7E24AF67520099B6AD /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFAE3E7D24AF67520099B6AD /* CoreDataStack.swift */; };
 		CFAE3E8224AF789C0099B6AD /* Person.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFAE3E8024AF789C0099B6AD /* Person.swift */; };
@@ -70,6 +71,16 @@
 		CFF37D5C24AA8B2700D89C80 /* RootAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFF37D5B24AA8B2700D89C80 /* RootAssembly.swift */; };
 		F6C8918581349F0F31062BD2 /* Pods_Big_eye.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E149C83925B75B34CFA52F6A /* Pods_Big_eye.framework */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		CF86F4B224B6187E00FA8D58 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = CFF37D2D24AA884000D89C80 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = CFF37D3424AA884100D89C80;
+			remoteInfo = "Big eye";
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		294CA30004A5D5E38C5BDE7F /* Pods-Big eye.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Big eye.debug.xcconfig"; path = "Target Support Files/Pods-Big eye/Pods-Big eye.debug.xcconfig"; sourceTree = "<group>"; };
@@ -109,6 +120,9 @@
 		CF61EA1824B234AD004DAC89 /* AddTimetableRowCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTimetableRowCellView.swift; sourceTree = "<group>"; };
 		CF80BC5A24ACFF7300BACABD /* GroupVCView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupVCView.swift; sourceTree = "<group>"; };
 		CF80BC5C24AD18D500BACABD /* GroupMemberCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupMemberCell.swift; sourceTree = "<group>"; };
+		CF86F4AD24B6187E00FA8D58 /* Big eyeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Big eyeTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		CF86F4AF24B6187E00FA8D58 /* Big_eyeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Big_eyeTests.swift; sourceTree = "<group>"; };
+		CF86F4B124B6187E00FA8D58 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CFAE3E7A24AF619D0099B6AD /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
 		CFAE3E7D24AF67520099B6AD /* CoreDataStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
 		CFAE3E8024AF789C0099B6AD /* Person.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Person.swift; sourceTree = "<group>"; };
@@ -141,6 +155,13 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		CF86F4AA24B6187E00FA8D58 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		CFF37D3224AA884100D89C80 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -317,6 +338,15 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		CF86F4AE24B6187E00FA8D58 /* Big eyeTests */ = {
+			isa = PBXGroup;
+			children = (
+				CF86F4AF24B6187E00FA8D58 /* Big_eyeTests.swift */,
+				CF86F4B124B6187E00FA8D58 /* Info.plist */,
+			);
+			path = "Big eyeTests";
+			sourceTree = "<group>";
+		};
 		CFAE3E7C24AF624F0099B6AD /* CoreData */ = {
 			isa = PBXGroup;
 			children = (
@@ -374,6 +404,7 @@
 			isa = PBXGroup;
 			children = (
 				CFF37D3724AA884100D89C80 /* Big eye */,
+				CF86F4AE24B6187E00FA8D58 /* Big eyeTests */,
 				CFF37D3624AA884100D89C80 /* Products */,
 				4EE3B076287E8179BB79B9FB /* Pods */,
 				EBEB28D151BE474D4B165742 /* Frameworks */,
@@ -384,6 +415,7 @@
 			isa = PBXGroup;
 			children = (
 				CFF37D3524AA884100D89C80 /* Big eye.app */,
+				CF86F4AD24B6187E00FA8D58 /* Big eyeTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -499,6 +531,24 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		CF86F4AC24B6187E00FA8D58 /* Big eyeTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = CF86F4B624B6187E00FA8D58 /* Build configuration list for PBXNativeTarget "Big eyeTests" */;
+			buildPhases = (
+				CF86F4A924B6187E00FA8D58 /* Sources */,
+				CF86F4AA24B6187E00FA8D58 /* Frameworks */,
+				CF86F4AB24B6187E00FA8D58 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				CF86F4B324B6187E00FA8D58 /* PBXTargetDependency */,
+			);
+			name = "Big eyeTests";
+			productName = "Big eyeTests";
+			productReference = CF86F4AD24B6187E00FA8D58 /* Big eyeTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		CFF37D3424AA884100D89C80 /* Big eye */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = CFF37D4924AA884100D89C80 /* Build configuration list for PBXNativeTarget "Big eye" */;
@@ -528,6 +578,10 @@
 				LastUpgradeCheck = 1150;
 				ORGANIZATIONNAME = Oleginc;
 				TargetAttributes = {
+					CF86F4AC24B6187E00FA8D58 = {
+						CreatedOnToolsVersion = 11.5;
+						TestTargetID = CFF37D3424AA884100D89C80;
+					};
 					CFF37D3424AA884100D89C80 = {
 						CreatedOnToolsVersion = 11.5;
 					};
@@ -547,11 +601,19 @@
 			projectRoot = "";
 			targets = (
 				CFF37D3424AA884100D89C80 /* Big eye */,
+				CF86F4AC24B6187E00FA8D58 /* Big eyeTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		CF86F4AB24B6187E00FA8D58 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		CFF37D3324AA884100D89C80 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -606,6 +668,14 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		CF86F4A924B6187E00FA8D58 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CF86F4B024B6187E00FA8D58 /* Big_eyeTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		CFF37D3124AA884100D89C80 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -674,6 +744,14 @@
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXTargetDependency section */
+		CF86F4B324B6187E00FA8D58 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = CFF37D3424AA884100D89C80 /* Big eye */;
+			targetProxy = CF86F4B224B6187E00FA8D58 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
 /* Begin PBXVariantGroup section */
 		CFF37D4324AA884100D89C80 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
@@ -686,6 +764,46 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		CF86F4B424B6187E00FA8D58 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = G62NMGFRS3;
+				INFOPLIST_FILE = "Big eyeTests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "OGI.Big-eyeTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Big eye.app/Big eye";
+			};
+			name = Debug;
+		};
+		CF86F4B524B6187E00FA8D58 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = G62NMGFRS3;
+				INFOPLIST_FILE = "Big eyeTests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "OGI.Big-eyeTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Big eye.app/Big eye";
+			};
+			name = Release;
+		};
 		CFF37D4724AA884100D89C80 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -843,6 +961,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		CF86F4B624B6187E00FA8D58 /* Build configuration list for PBXNativeTarget "Big eyeTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CF86F4B424B6187E00FA8D58 /* Debug */,
+				CF86F4B524B6187E00FA8D58 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		CFF37D3024AA884100D89C80 /* Build configuration list for PBXProject "Big eye" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

@@ -145,7 +145,7 @@ class StatisticsVCModel: IStatisticsVCModel {
             }
         }
         
-        var bestStudent = StatModel(name: "", visitsAndPasses: VisitsAndPasses(visits: 0, passes: 0), percentOfVisits: 0)
+        var bestStudent = StatModel(name: "", visitsAndPasses: VisitsAndPasses(visits: 0, passes: 0), percentOfVisits: -1)
         
         for (key, value) in students {
             let persent = (100 * value.visits) / (value.visits + value.passes)
@@ -177,7 +177,7 @@ class StatisticsVCModel: IStatisticsVCModel {
             }
         }
         
-        var badStudent = StatModel(name: "", visitsAndPasses: VisitsAndPasses(visits: 0, passes: 0), percentOfVisits: 100)
+        var badStudent = StatModel(name: "", visitsAndPasses: VisitsAndPasses(visits: 0, passes: 0), percentOfVisits: 101)
         
         for (key, value) in students {
             let persent = (100 * value.visits) / (value.visits + value.passes)
