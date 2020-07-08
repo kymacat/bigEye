@@ -57,7 +57,9 @@ class EyeTabBarController: UITabBarController {
         if newIndex == 2 && selectedIndex != 2 {
             if let navigationController = viewControllers?[2] as? UINavigationController {
                 if let controller = navigationController.viewControllers.first as? StatisticsViewController {
-                    controller.getCurrData()
+                    if controller.isViewLoaded {
+                        controller.getCurrData()
+                    }
                 }
                 
             }
