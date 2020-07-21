@@ -23,8 +23,6 @@
 		CF0976FC24B4E93B008A65CA /* StatisticsVCModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF0976FB24B4E93B008A65CA /* StatisticsVCModel.swift */; };
 		CF0976FE24B4E9B6008A65CA /* StatisticsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF0976FD24B4E9B6008A65CA /* StatisticsView.swift */; };
 		CF09770024B505D1008A65CA /* StatisticsFileManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF0976FF24B505D1008A65CA /* StatisticsFileManager.swift */; };
-		CF09770624B506B7008A65CA /* StatisticsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF09770324B506B6008A65CA /* StatisticsCell.swift */; };
-		CF09770724B506B7008A65CA /* AttendanceMark.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF09770424B506B7008A65CA /* AttendanceMark.swift */; };
 		CF0F091224B510150064D87F /* StatisticsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF0F091124B510150064D87F /* StatisticsService.swift */; };
 		CF0F091524B512120064D87F /* StatisticsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF0F091424B512120064D87F /* StatisticsModel.swift */; };
 		CF1D177624AEFD59002C7F0F /* AddMemberCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF1D177524AEFD59002C7F0F /* AddMemberCell.swift */; };
@@ -32,6 +30,8 @@
 		CF26B04D24B1FC4F00B4E1C4 /* AddTimetableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF26B04C24B1FC4F00B4E1C4 /* AddTimetableCell.swift */; };
 		CF26B05024B1FFEE00B4E1C4 /* AddTimetableCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF26B04F24B1FFEE00B4E1C4 /* AddTimetableCellView.swift */; };
 		CF26B05324B21CBE00B4E1C4 /* AddTimetableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF26B05224B21CBE00B4E1C4 /* AddTimetableView.swift */; };
+		CF4024D224C6FD760065EA60 /* StatisticsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF4024D124C6FD760065EA60 /* StatisticsCell.swift */; };
+		CF4024D424C6FD820065EA60 /* AttendanceMark.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF4024D324C6FD820065EA60 /* AttendanceMark.swift */; };
 		CF465A5B24ADE847009E82CB /* AddMemberView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF465A5A24ADE847009E82CB /* AddMemberView.swift */; };
 		CF465A5D24ADEC1F009E82CB /* DoubleTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF465A5C24ADEC1F009E82CB /* DoubleTextField.swift */; };
 		CF465A5F24ADECF1009E82CB /* NewMemberView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF465A5E24ADECF1009E82CB /* NewMemberView.swift */; };
@@ -101,8 +101,6 @@
 		CF0976FB24B4E93B008A65CA /* StatisticsVCModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticsVCModel.swift; sourceTree = "<group>"; };
 		CF0976FD24B4E9B6008A65CA /* StatisticsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticsView.swift; sourceTree = "<group>"; };
 		CF0976FF24B505D1008A65CA /* StatisticsFileManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticsFileManager.swift; sourceTree = "<group>"; };
-		CF09770324B506B6008A65CA /* StatisticsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = StatisticsCell.swift; path = "/Users/const/Documents/Приложения/Big eye/Big eye/CoreLayer/CoreData/Objects/StatisticsCell.swift"; sourceTree = "<absolute>"; };
-		CF09770424B506B7008A65CA /* AttendanceMark.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AttendanceMark.swift; path = "/Users/const/Documents/Приложения/Big eye/Big eye/CoreLayer/CoreData/Objects/AttendanceMark.swift"; sourceTree = "<absolute>"; };
 		CF0F091124B510150064D87F /* StatisticsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticsService.swift; sourceTree = "<group>"; };
 		CF0F091424B512120064D87F /* StatisticsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticsModel.swift; sourceTree = "<group>"; };
 		CF1D177524AEFD59002C7F0F /* AddMemberCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddMemberCell.swift; sourceTree = "<group>"; };
@@ -110,6 +108,8 @@
 		CF26B04C24B1FC4F00B4E1C4 /* AddTimetableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTimetableCell.swift; sourceTree = "<group>"; };
 		CF26B04F24B1FFEE00B4E1C4 /* AddTimetableCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTimetableCellView.swift; sourceTree = "<group>"; };
 		CF26B05224B21CBE00B4E1C4 /* AddTimetableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTimetableView.swift; sourceTree = "<group>"; };
+		CF4024D124C6FD760065EA60 /* StatisticsCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatisticsCell.swift; sourceTree = "<group>"; };
+		CF4024D324C6FD820065EA60 /* AttendanceMark.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AttendanceMark.swift; sourceTree = "<group>"; };
 		CF465A5A24ADE847009E82CB /* AddMemberView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddMemberView.swift; sourceTree = "<group>"; };
 		CF465A5C24ADEC1F009E82CB /* DoubleTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoubleTextField.swift; sourceTree = "<group>"; };
 		CF465A5E24ADECF1009E82CB /* NewMemberView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewMemberView.swift; sourceTree = "<group>"; };
@@ -362,8 +362,8 @@
 		CFAE3E8324AF78B10099B6AD /* Objects */ = {
 			isa = PBXGroup;
 			children = (
-				CF09770424B506B7008A65CA /* AttendanceMark.swift */,
-				CF09770324B506B6008A65CA /* StatisticsCell.swift */,
+				CF4024D324C6FD820065EA60 /* AttendanceMark.swift */,
+				CF4024D124C6FD760065EA60 /* StatisticsCell.swift */,
 				CFAE3E8024AF789C0099B6AD /* Person.swift */,
 				CFBBC56024B4407900A2661D /* SheduleCell.swift */,
 				CFBBC55E24B4407800A2661D /* SheduleRow.swift */,
@@ -681,7 +681,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				CF09770024B505D1008A65CA /* StatisticsFileManager.swift in Sources */,
-				CF09770724B506B7008A65CA /* AttendanceMark.swift in Sources */,
 				CF80BC5B24ACFF7300BACABD /* GroupVCView.swift in Sources */,
 				CF07863524ABB96D00FC7D1A /* GroupVCModel.swift in Sources */,
 				CF07863C24ABCD9200FC7D1A /* EyeTabBarController.swift in Sources */,
@@ -689,6 +688,7 @@
 				CFB0609724B4BA43007EA961 /* CopyAndPasteDesabledTextField.swift in Sources */,
 				CFB0609924B4C2B8007EA961 /* MarkAttendanceCell.swift in Sources */,
 				CF07863324ABB8F400FC7D1A /* GroupViewController.swift in Sources */,
+				CF4024D424C6FD820065EA60 /* AttendanceMark.swift in Sources */,
 				CF011E4324B0C6780012D6F7 /* TimetableModel.swift in Sources */,
 				CF0F091524B512120064D87F /* StatisticsModel.swift in Sources */,
 				CF465A6124ADFF66009E82CB /* CustomButton.swift in Sources */,
@@ -718,6 +718,7 @@
 				CF0976FE24B4E9B6008A65CA /* StatisticsView.swift in Sources */,
 				CF0976FC24B4E93B008A65CA /* StatisticsVCModel.swift in Sources */,
 				CF1D177624AEFD59002C7F0F /* AddMemberCell.swift in Sources */,
+				CF4024D224C6FD760065EA60 /* StatisticsCell.swift in Sources */,
 				CFB0609F24B4CFA2007EA961 /* MarkAttendanceService.swift in Sources */,
 				CFF37D5A24AA8AFC00D89C80 /* PresentationAssembly.swift in Sources */,
 				CF011E3C24B0AC380012D6F7 /* TimetableView.swift in Sources */,
@@ -731,7 +732,6 @@
 				CFAE3E7E24AF67520099B6AD /* CoreDataStack.swift in Sources */,
 				CF61EA1924B234AD004DAC89 /* AddTimetableRowCellView.swift in Sources */,
 				CF07863824ABBEAD00FC7D1A /* EyeTabBarItem.swift in Sources */,
-				CF09770624B506B7008A65CA /* StatisticsCell.swift in Sources */,
 				CFF37D3924AA884100D89C80 /* AppDelegate.swift in Sources */,
 				CFAE3E7B24AF619D0099B6AD /* Eye.xcdatamodeld in Sources */,
 				CFB0609524B4A549007EA961 /* MarkAttendanceVCView.swift in Sources */,
